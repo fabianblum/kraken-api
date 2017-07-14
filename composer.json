@@ -1,0 +1,15 @@
+{
+  "name": "hanischit/kraken-trader",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fabian Hanisch",
+      "email": "kontakt@hanisch-it.de"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.3",
+    "symfony/yaml": "^3.3"
+  }
+}
