@@ -11,7 +11,7 @@ namespace HanischIt\KrakenApi\Enum;
  * Class VisibilityEnum
  * @package HanischIt\KrakenApi\Enum
  */
-class VisibilityEnum extends \SplEnum
+class VisibilityEnum
 {
     const PUBLIC = 'public';
 

@@ -1,21 +1,23 @@
 <?php
 /**
  * @author Fabian Hanisch
- * @since 14.07.2017 23:08
+ * @since 16.07.2017 02:40
  * @version 1.0
  */
 
 namespace HanischIt\KrakenApi\Service\RequestService;
 
+use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\External\HttpClient;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\RequestOptions;
 
 /**
- * Class RequestServerTime
+ * Class PostRequest
  * @package HanischIt\KrakenApi\Service\RequestService
  */
-class Request implements RequestServiceInterface
+class PostRequest
 {
     /**
      * @var HttpClient
@@ -39,12 +41,15 @@ class Request implements RequestServiceInterface
 
     /**
      * @param RequestInterface $request
+     * @param RequestOptions $requestOptions
      * @param Header $header
+     * @return \Psr\Http\Message\ResponseInterface
      */
-    public function execute(RequestInterface $request, Header $header)
+    public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
     {
-        $this->client->request('', '', [
-            'headers' => $this->requestHeader->asArray($header)
+        return $this->client->request(RequestMethodEnum::REQUEST_METHOD_POST, $requestOptions->getEndpoint() . "/private/" . $request->getMethod(), [
+            'headers' => $this->requestHeader->asArray($header),
+            'form_params' => $request->getRequestData()
         ]);
     }
 }

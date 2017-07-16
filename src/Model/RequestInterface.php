@@ -24,4 +24,14 @@ interface RequestInterface
      * @return string
      */
     public function getVisibility();
+
+    /**
+     * @return array
+     */
+    public function getRequestData();
+
+    /**
+     * @return string
+     */
+    public function getResponseClassName();
 }

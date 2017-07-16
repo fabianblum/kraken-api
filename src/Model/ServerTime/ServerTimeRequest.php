@@ -29,4 +29,20 @@ class ServerTimeRequest implements RequestInterface
     {
         return VisibilityEnum::PUBLIC;
     }
+
+    /**
+     * @return array
+     */
+    public function getRequestData()
+    {
+        return [];
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseClassName()
+    {
+        return ServerTimeResponse::class;
+    }
 }

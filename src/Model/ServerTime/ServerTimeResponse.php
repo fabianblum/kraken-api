@@ -26,15 +26,21 @@ class ServerTimeResponse implements ResponseInterface
     private $rfc1123;
 
     /**
-     * ServerTimeResponse constructor.
      * @param string $unixTime
-     * @param string $rfc1123
      */
-    public function __construct($unixTime, $rfc1123)
+    public function setUnixTime(string $unixTime)
     {
         $this->unixTime = $unixTime;
+    }
+
+    /**
+     * @param string $rfc1123
+     */
+    public function setRfc1123(string $rfc1123)
+    {
         $this->rfc1123 = $rfc1123;
     }
+
 
     /**
      * @return string

@@ -29,4 +29,12 @@ class AccountBalanceRequest implements RequestInterface
     {
         return VisibilityEnum::PRIVATE;
     }
+
+    /**
+     * @return array
+     */
+    public function getRequestData()
+    {
+        // TODO: Implement getRequestData() method.
+    }
 }
