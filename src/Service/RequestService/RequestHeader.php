@@ -17,10 +17,17 @@ class RequestHeader
 {
     /**
      * @param Header $header
+     * @param array $requestData
+     * @param string $path
+     * @param $nonce
      * @return array
      */
-    public function asArray(Header $header)
+    public function asArray(Header $header, array $requestData, $path, $nonce)
     {
-        return ["API-Key" => $header->getApiKey(), "API-Sign" => $header->getApiSign()];
+        $requestData["nonce"] = $nonce;
+        $postData = http_build_query($requestData, '', '&');
+        $sign = hash_hmac('sha512', $path . hash('sha256', $nonce . $postData, true), base64_decode($header->getApiSign()), true);
+
+        return ["API-Key" => $header->getApiKey(), "API-Sign" => base64_encode($sign)];
     }
 }

@@ -47,8 +47,8 @@ class GetRequest
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
     {
-        return $this->client->request(RequestMethodEnum::REQUEST_METHOD_GET, $requestOptions->getEndpoint() . "/public/" . $request->getMethod(), [
-            'headers' => $this->requestHeader->asArray($header),
+        $path = $requestOptions->getEndpoint() . "/" . $requestOptions->getVersion() . "/public/" . $request->getMethod();
+        return $this->client->request(RequestMethodEnum::REQUEST_METHOD_GET, $path, [
             'query' => $request->getRequestData()
         ]);
     }

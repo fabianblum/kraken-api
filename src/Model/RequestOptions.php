@@ -17,14 +17,20 @@ class RequestOptions
      * @var string
      */
     private $endpoint;
+    /**
+     * @var string
+     */
+    private $version;
 
     /**
      * RequestOptions constructor.
      * @param string $endpoint
+     * @param string $version
      */
-    public function __construct($endpoint)
+    public function __construct($endpoint, $version)
     {
         $this->endpoint = $endpoint;
+        $this->version = $version;
     }
 
     /**
@@ -33,5 +39,13 @@ class RequestOptions
     public function getEndpoint(): string
     {
         return $this->endpoint;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion(): string
+    {
+        return $this->version;
     }
 }

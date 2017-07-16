@@ -8,7 +8,10 @@
 namespace HanischIt\KrakenApi;
 
 use HanischIt\KrakenApi\External\HttpClient;
+use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceRequest;
+use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use HanischIt\KrakenApi\Model\Header;
+use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
@@ -38,6 +41,10 @@ class KrakenApi
      * @var string
      */
     private $apiSign;
+    /**
+     * @var string
+     */
+    private $version;
 
     /**
      * KrakenApi constructor.
@@ -48,7 +55,8 @@ class KrakenApi
     {
         $this->httpClient = new HttpClient();
         $this->requestHeader = new RequestHeader();
-        $this->endpoint = 'https://api.kraken.com/0';
+        $this->endpoint = 'https://api.kraken.com/';
+        $this->version = '0';
         $this->apiKey = $apiKey;
         $this->apiSign = $apiSign;
     }
@@ -59,10 +67,33 @@ class KrakenApi
     public function getServerTime()
     {
         $serverTimeRequest = new ServerTimeRequest();
-        $requestOptions = new RequestOptions($this->endpoint);
+        $requestOptions = new RequestOptions($this->endpoint, $this->version);
         $header = new Header($this->apiKey, $this->apiSign);
 
         $request = new Request($this->httpClient, $this->requestHeader);
         return $request->execute($serverTimeRequest, $requestOptions, $header);
+    }
+
+    /**
+     * @return AccountBalanceResponse|ResponseInterface
+     */
+    public function getAccountBalance()
+    {
+        $accountBalanceRequest = new AccountBalanceRequest();
+
+        return $this->doRequest($accountBalanceRequest);
+    }
+
+    /**
+     * @param RequestInterface $requestInterface
+     * @return ResponseInterface
+     */
+    private function doRequest(RequestInterface $requestInterface)
+    {
+        $requestOptions = new RequestOptions($this->endpoint, $this->version);
+        $header = new Header($this->apiKey, $this->apiSign);
+        $request = new Request($this->httpClient, $this->requestHeader);
+
+        return $request->execute($requestInterface, $requestOptions, $header);
     }
 }

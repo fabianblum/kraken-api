@@ -35,6 +35,14 @@ class AccountBalanceRequest implements RequestInterface
      */
     public function getRequestData()
     {
-        // TODO: Implement getRequestData() method.
+        return [];
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseClassName()
+    {
+        return AccountBalanceResponse::class;
     }
 }

@@ -47,9 +47,24 @@ class PostRequest
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
     {
-        return $this->client->request(RequestMethodEnum::REQUEST_METHOD_POST, $requestOptions->getEndpoint() . "/private/" . $request->getMethod(), [
-            'headers' => $this->requestHeader->asArray($header),
-            'form_params' => $request->getRequestData()
+        $nonce = $this->getNonce();
+        $requestData = $request->getRequestData();
+        $requestData["nonce"] = $nonce;
+        $path = $requestOptions->getEndpoint() . $requestOptions->getVersion() . "/private/" . $request->getMethod();
+        return $this->client->request(RequestMethodEnum::REQUEST_METHOD_POST, $path, [
+            'headers' => $this->requestHeader->asArray($header, $requestData, "/" . $requestOptions->getVersion() . "/private/" . $request->getMethod(), $nonce),
+            'form_params' => $requestData
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    private function getNonce()
+    {
+        $nonce = explode(' ', microtime());
+        $nonce = $nonce[1] . str_pad(substr($nonce[0], 2, 6), 6, '0');
+
+        return $nonce;
     }
 }

@@ -10,10 +10,9 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 try {
     $api = new \HanischIt\KrakenApi\KrakenApi("Your-API-Key", "Your-API-Sign");
 
-    $serverTimeResponse = $api->getServerTime();
+    $accountBalanceResponse = $api->getAccountBalance();
 
-    echo "UnixTime: " . $serverTimeResponse->getUnixTime() . "\n";
-    echo "rfc1123: " . $serverTimeResponse->getRfc1123();
+    echo "rfc1123: " . $accountBalanceResponse->get();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
