@@ -36,7 +36,7 @@ class Header
     /**
      * @return string
      */
-    public function getApiKey(): string
+    public function getApiKey()
     {
         return $this->apiKey;
     }
@@ -44,7 +44,7 @@ class Header
     /**
      * @return string
      */
-    public function getApiSign(): string
+    public function getApiSign()
     {
         return $this->apiSign;
     }

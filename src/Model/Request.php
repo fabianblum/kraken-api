@@ -28,7 +28,7 @@ class Request
      * @param string $nonce
      * @param string $otp
      */
-    public function __construct(string $nonce, string $otp)
+    public function __construct($nonce, $otp)
     {
         $this->nonce = $nonce;
         $this->otp = $otp;
@@ -37,7 +37,7 @@ class Request
     /**
      * @return string
      */
-    public function getNonce(): string
+    public function getNonce()
     {
         return $this->nonce;
     }
@@ -45,7 +45,7 @@ class Request
     /**
      * @return string
      */
-    public function getOtp(): string
+    public function getOtp()
     {
         return $this->otp;
     }

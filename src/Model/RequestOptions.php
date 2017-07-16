@@ -36,7 +36,7 @@ class RequestOptions
     /**
      * @return string
      */
-    public function getEndpoint(): string
+    public function getEndpoint()
     {
         return $this->endpoint;
     }
@@ -44,7 +44,7 @@ class RequestOptions
     /**
      * @return string
      */
-    public function getVersion(): string
+    public function getVersion()
     {
         return $this->version;
     }

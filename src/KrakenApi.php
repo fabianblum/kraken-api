@@ -10,6 +10,9 @@ namespace HanischIt\KrakenApi;
 use HanischIt\KrakenApi\External\HttpClient;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceRequest;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
+use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
+use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
+use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
@@ -67,11 +70,8 @@ class KrakenApi
     public function getServerTime()
     {
         $serverTimeRequest = new ServerTimeRequest();
-        $requestOptions = new RequestOptions($this->endpoint, $this->version);
-        $header = new Header($this->apiKey, $this->apiSign);
 
-        $request = new Request($this->httpClient, $this->requestHeader);
-        return $request->execute($serverTimeRequest, $requestOptions, $header);
+        return $this->doRequest($serverTimeRequest);
     }
 
     /**
@@ -82,6 +82,31 @@ class KrakenApi
         $accountBalanceRequest = new AccountBalanceRequest();
 
         return $this->doRequest($accountBalanceRequest);
+    }
+
+    /**
+     * @param string $pair
+     * @param string $type
+     * @param string $orderType
+     * @param null|float $price
+     * @param null|float $volume
+     * @return ResponseInterface
+     */
+    public function addOrder($pair, $type, $orderType, $price = null, $volume = null)
+    {
+        $addOrderRequest = new AddOrderRequest($pair, $type, $orderType, $price, $volume);
+
+        return $this->doRequest($addOrderRequest);
+    }
+
+    /**
+     * @return ResponseInterface|AssetsResponse
+     */
+    public function getAssets()
+    {
+        $assetsRequest = new AssetsRequest();
+
+        return $this->doRequest($assetsRequest);
     }
 
     /**

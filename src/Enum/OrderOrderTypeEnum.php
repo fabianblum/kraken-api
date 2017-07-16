@@ -11,9 +11,9 @@ namespace HanischIt\KrakenApi\Enum;
  * Class VisibilityEnum
  * @package HanischIt\KrakenApi\Enum
  */
-class VisibilityEnum
+class OrderOrderTypeEnum
 {
-    const VISIBILITY_PUBLIC = 'public';
+    const ORDER_ORDERTYPE_LIMIT = 'limit';
 
-    const VISIBILITY_PRIVATE = 'private';
+    const ORDER_ORDERTYPE_MARKET = 'market';
 }

@@ -27,7 +27,7 @@ class ServerTimeRequest implements RequestInterface
      */
     public function getVisibility()
     {
-        return VisibilityEnum::PUBLIC;
+        return VisibilityEnum::VISIBILITY_PUBLIC;
     }
 
     /**
@@ -43,6 +43,6 @@ class ServerTimeRequest implements RequestInterface
      */
     public function getResponseClassName()
     {
-        return ServerTimeResponse::class;
+        return AssetsResponse::class;
     }
 }

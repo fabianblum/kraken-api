@@ -39,7 +39,7 @@ class AccountBalanceResponse implements ResponseInterface
     /**
      * @return string
      */
-    public function getUnixTime(): string
+    public function getUnixTime()
     {
         return $this->unixTime;
     }
@@ -47,7 +47,7 @@ class AccountBalanceResponse implements ResponseInterface
     /**
      * @return string
      */
-    public function getRfc1123(): string
+    public function getRfc1123()
     {
         return $this->rfc1123;
     }

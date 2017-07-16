@@ -28,7 +28,7 @@ class ServerTimeResponse implements ResponseInterface
     /**
      * @param string $unixTime
      */
-    public function setUnixTime(string $unixTime)
+    public function setUnixTime($unixTime)
     {
         $this->unixTime = $unixTime;
     }
@@ -36,7 +36,7 @@ class ServerTimeResponse implements ResponseInterface
     /**
      * @param string $rfc1123
      */
-    public function setRfc1123(string $rfc1123)
+    public function setRfc1123($rfc1123)
     {
         $this->rfc1123 = $rfc1123;
     }
@@ -45,7 +45,7 @@ class ServerTimeResponse implements ResponseInterface
     /**
      * @return string
      */
-    public function getUnixTime(): string
+    public function getUnixTime()
     {
         return $this->unixTime;
     }
@@ -53,7 +53,7 @@ class ServerTimeResponse implements ResponseInterface
     /**
      * @return string
      */
-    public function getRfc1123(): string
+    public function getRfc1123()
     {
         return $this->rfc1123;
     }

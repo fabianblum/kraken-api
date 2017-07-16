@@ -49,7 +49,7 @@ class Request implements RequestServiceInterface
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
     {
-        $method = $request->getVisibility() == VisibilityEnum::PRIVATE ? RequestMethodEnum::REQUEST_METHOD_POST : RequestMethodEnum::REQUEST_METHOD_GET;
+        $method = $request->getVisibility() == VisibilityEnum::VISIBILITY_PRIVATE ? RequestMethodEnum::REQUEST_METHOD_POST : RequestMethodEnum::REQUEST_METHOD_GET;
 
         if ($method === RequestMethodEnum::REQUEST_METHOD_POST) {
             $response = (new PostRequest($this->client, $this->requestHeader))->execute($request, $requestOptions, $header);
@@ -61,9 +61,13 @@ class Request implements RequestServiceInterface
         $responseObject = new $responseClass();
         $result = json_decode($response->getBody(), true);
         if (isset($result["result"])) {
-            foreach ($result["result"] as $key => $val) {
-                $methodName = "set" . ucfirst($key);
-                $responseObject->$methodName($val);
+            if (method_exists($responseObject, "manualMapping")) {
+                $responseObject->manualMapping($result["result"]);
+            } else {
+                foreach ($result["result"] as $key => $val) {
+                    $methodName = "set" . ucfirst($key);
+                    $responseObject->$methodName($val);
+                }
             }
         }
 
