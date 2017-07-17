@@ -1,8 +1,8 @@
 {
-  "name": "hanischit/kraken-trader",
+  "name": "hanischit/kraken-api",
   "type": "library",
   "license": "MIT",
-  "keywords":          [
+  "keywords": [
     "kraken",
     "crypt",
     "trade",
@@ -15,6 +15,7 @@
     }
   ],
   "require": {
+    "php": ">=5.5",
     "guzzlehttp/guzzle": "^6.3",
     "symfony/yaml": "^3.3"
   },
