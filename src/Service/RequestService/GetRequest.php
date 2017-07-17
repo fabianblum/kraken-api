@@ -11,6 +11,7 @@ use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\External\HttpClient;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
+use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
  * Class PostRequest
@@ -44,7 +45,7 @@ class GetRequest
      * @param RequestInterface $request
      * @param RequestOptions   $requestOptions
      *
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions)
     {
