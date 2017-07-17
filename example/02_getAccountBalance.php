@@ -12,7 +12,6 @@ try {
 
     $accountBalanceResponse = $api->getAccountBalance();
 
-    echo "rfc1123: " . $accountBalanceResponse->getRfc1123();
 } catch (Exception $e) {
     echo $e->getMessage();
 }

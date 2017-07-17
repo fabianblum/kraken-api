@@ -71,15 +71,4 @@ class PostRequest
             'form_params' => $requestData
         ]);
     }
-
-    /**
-     * @return string
-     */
-    private function getNonce()
-    {
-        $nonce = explode(' ', microtime());
-        $nonce = $nonce[1] . str_pad(substr($nonce[0], 2, 6), 6, '0');
-
-        return $nonce;
-    }
 }

@@ -52,6 +52,10 @@ class KrakenApi
      * @var string
      */
     private $version;
+    /**
+     * @var string
+     */
+    private $endpoint;
 
     /**
      * KrakenApi constructor.

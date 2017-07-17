@@ -45,11 +45,21 @@ class TickerResponse implements ResponseInterface
      */
     public function getAsk($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getAsk();
+    }
+
+    /**
+     * @param string $assetPair
+     *
+     * @throws \Exception
+     */
+    private function checkIfAssetPairExist($assetPair)
+    {
+        if (!isset($this->models[$assetPair])) {
+            throw new \Exception($assetPair . " is not included in response");
+        }
     }
 
     /**
@@ -60,9 +70,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getBid($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getBid();
     }
@@ -75,9 +83,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getLastTradeClosed($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getLastTradeClosed();
     }
@@ -90,9 +96,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getVolume($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getVolume();
     }
@@ -105,9 +109,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getVolumeWeightedAverage($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getVolumeWeightedAverage();
     }
@@ -120,9 +122,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getNumberOfTrades($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getNumberOfTrades();
     }
@@ -135,9 +135,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getLow($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getLow();
     }
@@ -150,9 +148,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getHigh($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getHigh();
     }
@@ -165,9 +161,7 @@ class TickerResponse implements ResponseInterface
      */
     public function getTodaysOpeningPrice($assetPair)
     {
-        if (!isset($assetPair)) {
-            throw new \Exception($assetPair . " is not included in response");
-        }
+        $this->checkIfAssetPairExist($assetPair);
 
         return $this->models[$assetPair]->getTodaysOpeningPrice();
     }

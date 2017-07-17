@@ -9,8 +9,8 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 try {
     $api = new \HanischIt\KrakenApi\KrakenApi(
-        "olV67nGEsbcbSRDIH1E+FsLQvBzzaV14IbHyDxZDVyvxI0gpvRl+p7R1",
-        "ov9tfD0ZQwEIXbz/87hi9DZze4I6hKY9QLuDBFMdll/H+XU56FJQu5v60kwkHyD9G1SPqqR71IW7QjPYN8nAnw=="
+        "Your-API-Key",
+        "Your-API-Sign"
     );
 
     $tickerResponse = $api->getTicker(["XETHZEUR"]);
