@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 14.07.2017 23:19
+ * @author  Fabian Hanisch
+ * @since   14.07.2017 23:19
  * @version 1.0
  */
 
@@ -11,15 +11,17 @@ use HanischIt\KrakenApi\Model\Header;
 
 /**
  * Class RequestHeader
+ *
  * @package HanischIt\KrakenApi\Service\RequestService
  */
 class RequestHeader
 {
     /**
      * @param Header $header
-     * @param array $requestData
+     * @param array  $requestData
      * @param string $path
-     * @param $nonce
+     * @param        $nonce
+     *
      * @return array
      */
     public function asArray(Header $header, array $requestData, $path, $nonce)

@@ -6,8 +6,9 @@ use HanischIt\KrakenApi\Enum\VisibilityEnum;
 use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class GetServerTime
- * @package HanischIt\KrakenApi\Request\PublicRequest
+ * Class AssetsRequest
+ *
+ * @package HanischIt\KrakenApi\Model\Assets
  */
 class AssetsRequest implements RequestInterface
 {

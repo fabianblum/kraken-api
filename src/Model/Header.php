@@ -1,14 +1,15 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 14.07.2017 21:00
+ * @author  Fabian Hanisch
+ * @since   14.07.2017 21:00
  * @version 1.0
  */
 
 namespace HanischIt\KrakenApi\Model;
 
 /**
- * Class HeaderClass
+ * Class Header
+ *
  * @package HanischIt\KrakenApi\Model
  */
 class Header
@@ -24,6 +25,7 @@ class Header
 
     /**
      * Header constructor.
+     *
      * @param string $apiKey
      * @param string $apiSign
      */

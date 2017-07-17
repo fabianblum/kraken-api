@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 02:32
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 02:32
  * @version 1.0
  */
 
@@ -9,6 +9,7 @@ namespace HanischIt\KrakenApi\Enum;
 
 /**
  * Class RequestMethodEnum
+ *
  * @package HanischIt\KrakenApi\Enum
  */
 class RequestMethodEnum

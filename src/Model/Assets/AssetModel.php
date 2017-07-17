@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 20:34
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 20:34
  * @version 1.0
  */
 
@@ -9,6 +9,7 @@ namespace HanischIt\KrakenApi\Model\Assets;
 
 /**
  * Class AssetModel
+ *
  * @package HanischIt\KrakenApi\Model\Assets
  */
 class AssetModel
@@ -36,11 +37,12 @@ class AssetModel
 
     /**
      * AssetModel constructor.
+     *
      * @param string $assetName
      * @param string $aclass
      * @param string $altname
-     * @param int $decimals
-     * @param int $displayDecimals
+     * @param int    $decimals
+     * @param int    $displayDecimals
      */
     public function __construct($assetName, $aclass, $altname, $decimals, $displayDecimals)
     {

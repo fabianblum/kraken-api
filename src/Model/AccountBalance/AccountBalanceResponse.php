@@ -6,7 +6,8 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
  * Class AccountBalanceResponse
- * @package HanischIt\KrakenApi\Model\ServerTime
+ *
+ * @package HanischIt\KrakenApi\Mod
  */
 class AccountBalanceResponse implements ResponseInterface
 {
@@ -27,6 +28,7 @@ class AccountBalanceResponse implements ResponseInterface
 
     /**
      * ServerTimeResponse constructor.
+     *
      * @param string $unixTime
      * @param string $rfc1123
      */

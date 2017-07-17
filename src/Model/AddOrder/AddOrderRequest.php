@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 18:24
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 18:24
  * @version 1.0
  */
 
@@ -12,6 +12,7 @@ use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
  * Class AddOrderRequest
+ *
  * @package HanischIt\KrakenApi\Model\AddOrder
  */
 class AddOrderRequest implements RequestInterface
@@ -43,12 +44,13 @@ class AddOrderRequest implements RequestInterface
 
     /**
      * AddOrderRequest constructor.
+     *
      * @param string $pair
      * @param string $type
      * @param string $orderType
-     * @param float $price
-     * @param float $volume
-     * @param bool $validateOnly
+     * @param float  $price
+     * @param float  $volume
+     * @param bool   $validateOnly
      */
     public function __construct($pair, $type, $orderType, $price, $volume, $validateOnly = false)
     {
@@ -97,6 +99,7 @@ class AddOrderRequest implements RequestInterface
         if ($this->validateOnly) {
             $ret["validate"] = $this->validateOnly;
         }
+
         return [];
     }
 

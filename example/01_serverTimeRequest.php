@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 02:55
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 02:55
  * @version 1.0
  */
 

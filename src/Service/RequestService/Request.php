@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 14.07.2017 23:08
+ * @author  Fabian Hanisch
+ * @since   14.07.2017 23:08
  * @version 1.0
  */
 
@@ -16,7 +16,8 @@ use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
- * Class RequestServerTime
+ * Class Request
+ *
  * @package HanischIt\KrakenApi\Service\RequestService
  */
 class Request implements RequestServiceInterface
@@ -32,7 +33,8 @@ class Request implements RequestServiceInterface
 
     /**
      * Request constructor.
-     * @param HttpClient $client
+     *
+     * @param HttpClient    $client
      * @param RequestHeader $requestHeader
      */
     public function __construct(HttpClient $client, RequestHeader $requestHeader)
@@ -43,8 +45,9 @@ class Request implements RequestServiceInterface
 
     /**
      * @param RequestInterface $request
-     * @param RequestOptions $requestOptions
-     * @param Header $header
+     * @param RequestOptions   $requestOptions
+     * @param Header           $header
+     *
      * @return ResponseInterface
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
@@ -54,7 +57,7 @@ class Request implements RequestServiceInterface
         if ($method === RequestMethodEnum::REQUEST_METHOD_POST) {
             $response = (new PostRequest($this->client, $this->requestHeader))->execute($request, $requestOptions, $header);
         } else {
-            $response = (new GetRequest($this->client, $this->requestHeader))->execute($request, $requestOptions, $header);
+            $response = (new GetRequest($this->client, $this->requestHeader))->execute($request, $requestOptions);
         }
 
         $responseClass = $request->getResponseClassName();

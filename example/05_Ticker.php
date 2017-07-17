@@ -13,8 +13,9 @@ try {
         "ov9tfD0ZQwEIXbz/87hi9DZze4I6hKY9QLuDBFMdll/H+XU56FJQu5v60kwkHyD9G1SPqqR71IW7QjPYN8nAnw=="
     );
 
-    $assetsResponse = $api->getAssets();
-    print_r($assetsResponse->getAssets());
+    $tickerResponse = $api->getTicker(["XETHZEUR"]);
+
+    echo "Todays-Opening-Price: " . $tickerResponse->getTodaysOpeningPrice("XETHZEUR");
 } catch (Exception $e) {
     echo $e->getMessage();
 }

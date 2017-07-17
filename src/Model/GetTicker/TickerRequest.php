@@ -1,17 +1,32 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\ServerTime;
+namespace HanischIt\KrakenApi\Model\GetTicker;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
 use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class ServerTimeRequest
+ * Class GetServerTime
  *
- * @package HanischIt\KrakenApi\Model\ServerTime
+ * @package HanischIt\KrakenApi\Model\GetTicker
  */
-class ServerTimeRequest implements RequestInterface
+class TickerRequest implements RequestInterface
 {
+
+    /**
+     * @var array
+     */
+    private $pairs;
+
+    /**
+     * TicketRequest constructor.
+     *
+     * @param array $pairs
+     */
+    public function __construct(array $pairs)
+    {
+        $this->pairs = $pairs;
+    }
 
     /**
      * Returns the api request name
@@ -20,7 +35,7 @@ class ServerTimeRequest implements RequestInterface
      */
     public function getMethod()
     {
-        return 'Time';
+        return 'Ticker';
     }
 
     /**
@@ -36,7 +51,7 @@ class ServerTimeRequest implements RequestInterface
      */
     public function getRequestData()
     {
-        return [];
+        return ["pair" => implode(",", $this->pairs)];
     }
 
     /**
@@ -44,6 +59,6 @@ class ServerTimeRequest implements RequestInterface
      */
     public function getResponseClassName()
     {
-        return ServerTimeResponse::class;
+        return TickerResponse::class;
     }
 }

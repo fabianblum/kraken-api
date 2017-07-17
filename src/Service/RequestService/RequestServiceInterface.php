@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 14.07.2017 23:09
+ * @author  Fabian Hanisch
+ * @since   14.07.2017 23:09
  * @version 1.0
  */
 
@@ -13,6 +13,7 @@ use HanischIt\KrakenApi\Model\RequestOptions;
 
 /**
  * Interface RequestServiceInterface
+ *
  * @package HanischIt\KrakenApi\Service\RequestService
  */
 interface RequestServiceInterface

@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 02:56
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 02:56
  * @version 1.0
  */
 
@@ -13,6 +13,8 @@ use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
 use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
+use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
+use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
@@ -24,6 +26,7 @@ use HanischIt\KrakenApi\Service\RequestService\RequestHeader;
 
 /**
  * Class KrakenApi
+ *
  * @package HanischIt\KrakenApi
  */
 class KrakenApi
@@ -51,12 +54,13 @@ class KrakenApi
 
     /**
      * KrakenApi constructor.
+     *
      * @param string $apiKey
      * @param string $apiSign
      */
     public function __construct($apiKey, $apiSign)
     {
-        $this->httpClient = new HttpClient();
+        $this->httpClient = new HttpClient(['verify' => false]);
         $this->requestHeader = new RequestHeader();
         $this->endpoint = 'https://api.kraken.com/';
         $this->version = '0';
@@ -85,11 +89,12 @@ class KrakenApi
     }
 
     /**
-     * @param string $pair
-     * @param string $type
-     * @param string $orderType
+     * @param string     $pair
+     * @param string     $type
+     * @param string     $orderType
      * @param null|float $price
      * @param null|float $volume
+     *
      * @return ResponseInterface
      */
     public function addOrder($pair, $type, $orderType, $price = null, $volume = null)
@@ -110,7 +115,20 @@ class KrakenApi
     }
 
     /**
+     * @param array $assetNames
+     *
+     * @return ResponseInterface|TickerResponse
+     */
+    public function getTicker(array $assetNames)
+    {
+        $tickerRequest = new TickerRequest($assetNames);
+
+        return $this->doRequest($tickerRequest);
+    }
+
+    /**
      * @param RequestInterface $requestInterface
+     *
      * @return ResponseInterface
      */
     private function doRequest(RequestInterface $requestInterface)

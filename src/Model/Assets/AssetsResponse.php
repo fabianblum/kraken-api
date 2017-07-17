@@ -5,8 +5,9 @@ namespace HanischIt\KrakenApi\Model\Assets;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
- * Class ServerTimeResponse
- * @package HanischIt\KrakenApi\Model\ServerTime
+ * Class AssetsResponse
+ *
+ * @package HanischIt\KrakenApi\Model\Assets
  */
 class AssetsResponse implements ResponseInterface
 {
@@ -21,7 +22,13 @@ class AssetsResponse implements ResponseInterface
     public function manualMapping($result)
     {
         foreach ($result as $assetName => $assetValues) {
-            $this->assets[] = new AssetModel($assetName, $assetValues["aclass"], $assetValues["altname"], $assetValues["decimals"], $assetValues["display_decimals"]);
+            $this->assets[] = new AssetModel(
+                $assetName,
+                $assetValues["aclass"],
+                $assetValues["altname"],
+                $assetValues["decimals"],
+                $assetValues["display_decimals"]
+            );
         }
     }
 

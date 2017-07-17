@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 02:40
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 02:40
  * @version 1.0
  */
 
@@ -15,6 +15,7 @@ use HanischIt\KrakenApi\Model\RequestOptions;
 
 /**
  * Class PostRequest
+ *
  * @package HanischIt\KrakenApi\Service\RequestService
  */
 class PostRequest
@@ -30,7 +31,8 @@ class PostRequest
 
     /**
      * Request constructor.
-     * @param HttpClient $client
+     *
+     * @param HttpClient    $client
      * @param RequestHeader $requestHeader
      */
     public function __construct(HttpClient $client, RequestHeader $requestHeader)
@@ -41,8 +43,9 @@ class PostRequest
 
     /**
      * @param RequestInterface $request
-     * @param RequestOptions $requestOptions
-     * @param Header $header
+     * @param RequestOptions   $requestOptions
+     * @param Header           $header
+     *
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
@@ -51,8 +54,14 @@ class PostRequest
         $requestData = $request->getRequestData();
         $requestData["nonce"] = $nonce;
         $path = $requestOptions->getEndpoint() . $requestOptions->getVersion() . "/private/" . $request->getMethod();
+
         return $this->client->request(RequestMethodEnum::REQUEST_METHOD_POST, $path, [
-            'headers' => $this->requestHeader->asArray($header, $requestData, "/" . $requestOptions->getVersion() . "/private/" . $request->getMethod(), $nonce),
+            'headers' => $this->requestHeader->asArray(
+                $header,
+                $requestData,
+                "/" . $requestOptions->getVersion() . "/private/" . $request->getMethod(),
+                $nonce
+            ),
             'form_params' => $requestData
         ]);
     }

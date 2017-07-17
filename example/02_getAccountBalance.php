@@ -1,7 +1,7 @@
 <?php
 /**
- * @author Fabian Hanisch
- * @since 16.07.2017 02:55
+ * @author  Fabian Hanisch
+ * @since   16.07.2017 02:55
  * @version 1.0
  */
 
@@ -12,7 +12,7 @@ try {
 
     $accountBalanceResponse = $api->getAccountBalance();
 
-    echo "rfc1123: " . $accountBalanceResponse->get();
+    echo "rfc1123: " . $accountBalanceResponse->getRfc1123();
 } catch (Exception $e) {
     echo $e->getMessage();
 }

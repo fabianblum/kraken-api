@@ -7,7 +7,8 @@ use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
  * Class ServerTimeRequest
- * @package HanischIt\KrakenApi\Request\PublicRequest
+ *
+ * @package HanischIt\Model\AccountBalance
  */
 class AccountBalanceRequest implements RequestInterface
 {

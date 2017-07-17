@@ -5,8 +5,9 @@ namespace HanischIt\KrakenApi\Model\AddOrder;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
- * Class AccountBalanceResponse
- * @package HanischIt\KrakenApi\Model\ServerTime
+ * Class AddOrderResponse
+ *
+ * @package HanischIt\KrakenApi\Model\AddOrderResponse
  */
 class AddOrderResponse implements ResponseInterface
 {
@@ -27,7 +28,8 @@ class AddOrderResponse implements ResponseInterface
 
     /**
      * AddOrderResponse constructor.
-     * @param array $descr
+     *
+     * @param array  $descr
      * @param string $txid
      */
     public function __construct(array $descr, $txid)
