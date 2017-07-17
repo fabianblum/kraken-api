@@ -1,7 +1,13 @@
 {
   "name": "hanischit/kraken-trader",
-  "type": "project",
+  "type": "library",
   "license": "MIT",
+  "keywords":          [
+    "kraken",
+    "crypt",
+    "trade",
+    "tading"
+  ],
   "authors": [
     {
       "name": "Fabian Hanisch",
@@ -11,6 +17,9 @@
   "require": {
     "guzzlehttp/guzzle": "^6.3",
     "symfony/yaml": "^3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "3.* || 4.*"
   },
   "autoload": {
     "psr-4": {
