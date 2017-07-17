@@ -30,17 +30,23 @@ class Request implements RequestServiceInterface
      * @var RequestHeader
      */
     private $requestHeader;
+    /**
+     * @var Nonce
+     */
+    private $nonce;
 
     /**
      * Request constructor.
      *
      * @param HttpClient    $client
      * @param RequestHeader $requestHeader
+     * @param Nonce         $nonce
      */
-    public function __construct(HttpClient $client, RequestHeader $requestHeader)
+    public function __construct(HttpClient $client, RequestHeader $requestHeader, Nonce $nonce)
     {
         $this->client = $client;
         $this->requestHeader = $requestHeader;
+        $this->nonce = $nonce;
     }
 
     /**
@@ -55,7 +61,7 @@ class Request implements RequestServiceInterface
         $method = $request->getVisibility() == VisibilityEnum::VISIBILITY_PRIVATE ? RequestMethodEnum::REQUEST_METHOD_POST : RequestMethodEnum::REQUEST_METHOD_GET;
 
         if ($method === RequestMethodEnum::REQUEST_METHOD_POST) {
-            $response = (new PostRequest($this->client, $this->requestHeader))->execute($request, $requestOptions, $header);
+            $response = (new PostRequest($this->client, $this->requestHeader, $this->nonce))->execute($request, $requestOptions, $header);
         } else {
             $response = (new GetRequest($this->client, $this->requestHeader))->execute($request, $requestOptions);
         }

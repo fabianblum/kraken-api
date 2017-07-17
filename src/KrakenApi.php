@@ -21,6 +21,7 @@ use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
+use HanischIt\KrakenApi\Service\RequestService\Nonce;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use HanischIt\KrakenApi\Service\RequestService\RequestHeader;
 
@@ -135,7 +136,8 @@ class KrakenApi
     {
         $requestOptions = new RequestOptions($this->endpoint, $this->version);
         $header = new Header($this->apiKey, $this->apiSign);
-        $request = new Request($this->httpClient, $this->requestHeader);
+        $nonce = new Nonce();
+        $request = new Request($this->httpClient, $this->requestHeader, $nonce);
 
         return $request->execute($requestInterface, $requestOptions, $header);
     }

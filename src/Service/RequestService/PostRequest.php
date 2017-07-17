@@ -28,17 +28,23 @@ class PostRequest
      * @var RequestHeader
      */
     private $requestHeader;
+    /**
+     * @var Nonce
+     */
+    private $nonce;
 
     /**
      * Request constructor.
      *
      * @param HttpClient    $client
      * @param RequestHeader $requestHeader
+     * @param Nonce         $nonce
      */
-    public function __construct(HttpClient $client, RequestHeader $requestHeader)
+    public function __construct(HttpClient $client, RequestHeader $requestHeader, Nonce $nonce)
     {
         $this->client = $client;
         $this->requestHeader = $requestHeader;
+        $this->nonce = $nonce;
     }
 
     /**
@@ -50,7 +56,7 @@ class PostRequest
      */
     public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
     {
-        $nonce = $this->getNonce();
+        $nonce = $this->nonce->generate();
         $requestData = $request->getRequestData();
         $requestData["nonce"] = $nonce;
         $path = $requestOptions->getEndpoint() . $requestOptions->getVersion() . "/private/" . $request->getMethod();
