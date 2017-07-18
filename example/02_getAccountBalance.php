@@ -12,6 +12,9 @@ try {
 
     $accountBalanceResponse = $api->getAccountBalance();
 
+    foreach ($accountBalanceResponse->getBalanceModels() as $balanceModel) {
+        echo $balanceModel->getAssetName() . ": " . $balanceModel->getBalance() . "\n";
+    }
 } catch (Exception $e) {
     echo $e->getMessage();
 }
