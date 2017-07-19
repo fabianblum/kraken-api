@@ -96,11 +96,11 @@ class AddOrderRequest implements RequestInterface
         if ($this->volume) {
             $ret["volume"] = $this->volume;
         }
-        if ($this->validateOnly) {
+        if (false !== $this->validateOnly) {
             $ret["validate"] = $this->validateOnly;
         }
 
-        return [];
+        return $ret;
     }
 
     /**

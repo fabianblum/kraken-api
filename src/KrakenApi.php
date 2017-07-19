@@ -11,6 +11,7 @@ use HanischIt\KrakenApi\External\HttpClient;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceRequest;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
+use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
@@ -102,7 +103,7 @@ class KrakenApi
      * @param null|float $price
      * @param null|float $volume
      *
-     * @return ResponseInterface
+     * @return ResponseInterface|AddOrderResponse
      */
     public function addOrder($pair, $type, $orderType, $price = null, $volume = null)
     {

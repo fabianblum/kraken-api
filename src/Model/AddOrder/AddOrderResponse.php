@@ -27,16 +27,14 @@ class AddOrderResponse implements ResponseInterface
     private $txid;
 
     /**
-     * AddOrderResponse constructor.
-     *
-     * @param array  $descr
-     * @param string $txid
+     * @param array $result
      */
-    public function __construct(array $descr, $txid)
+    public function manualMapping($result)
     {
-        $this->descr = $descr;
-        $this->txid = $txid;
+        $this->descr = $result['descr']['order'];
+        $this->txid = $result['txid'][0];
     }
+
 
     /**
      * @return array
