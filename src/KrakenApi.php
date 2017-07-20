@@ -14,6 +14,8 @@ use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
 use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
+use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersRequest;
+use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\Header;
@@ -158,6 +160,23 @@ class KrakenApi
     public function getOpenOrders($trades = false, $userref = null)
     {
         $orderBookRequest = new OpenOrdersRequest($trades, $userref);
+
+        return $this->doRequest($orderBookRequest);
+    }
+
+    /**
+     * @param bool        $trades
+     * @param null        $userref
+     * @param null|string $start
+     * @param null|string $end
+     * @param null|int    $ofs
+     * @param null|string $closetime
+     *
+     * @return ClosedOrdersResponse|ResponseInterface
+     */
+    public function getClosedOrders($trades = false, $userref = null, $start = null, $end = null, $ofs = null, $closetime = null)
+    {
+        $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
     }

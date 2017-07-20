@@ -23,7 +23,7 @@ You can use the existing sources but they may will be changed
 - [x] GetAccountBalance
 - [ ] GetTradeBalance
 - [x] GetOpenOrders
-- [ ] GetClosedOrders
+- [x] GetClosedOrders
 - [ ] GetOrders
 - [ ] GetTradesHistory
 - [ ] GetTrades
