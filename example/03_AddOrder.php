@@ -12,8 +12,8 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 try {
     $api = new \HanischIt\KrakenApi\KrakenApi(
-        'MCmFPhit7uoWh09l7FzXry/XiPjRO+YrVdmoDd1+Xh9ty4miJA2sk5PW',
-        'eHdYEl9lwIAF+MkS52GhwayF0VJ03EDur0CmBnlinqSK8XSjop3af7vuNuvdFR6sXe3+hE79ErbqbBb0GDU20w=='
+        "Your-API-Key",
+        "Your-API-Sign"
     );
 
     $addOrderResponse = $api->addOrder(
