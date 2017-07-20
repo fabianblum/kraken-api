@@ -17,6 +17,8 @@ use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\Header;
+use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
+use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
@@ -97,9 +99,9 @@ class KrakenApi
     }
 
     /**
-     * @param string $pair
-     * @param string $type
-     * @param string $orderType
+     * @param string     $pair
+     * @param string     $type
+     * @param string     $orderType
      * @param null|float $price
      * @param null|float $volume
      *
@@ -135,13 +137,27 @@ class KrakenApi
     }
 
     /**
-     * @param string $assetPair
+     * @param string   $assetPair
      * @param int|null $count
+     *
      * @return ResponseInterface|OrderBookResponse
      */
     public function getOrderBook($assetPair, $count = null)
     {
         $orderBookRequest = new OrderBookRequest($assetPair, $count);
+
+        return $this->doRequest($orderBookRequest);
+    }
+
+    /**
+     * @param bool $trades
+     * @param null $userref
+     *
+     * @return ResponseInterface|OpenOrdersResponse
+     */
+    public function getOpenOrders($trades = false, $userref = null)
+    {
+        $orderBookRequest = new OpenOrdersRequest($trades, $userref);
 
         return $this->doRequest($orderBookRequest);
     }

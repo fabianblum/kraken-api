@@ -22,7 +22,7 @@ You can use the existing sources but they may will be changed
 **Private**
 - [x] GetAccountBalance
 - [ ] GetTradeBalance
-- [ ] GetOpenOrders
+- [x] GetOpenOrders
 - [ ] GetClosedOrders
 - [ ] GetOrders
 - [ ] GetTradesHistory
