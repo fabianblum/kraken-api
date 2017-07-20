@@ -67,8 +67,8 @@ class Request implements RequestServiceInterface
         }
 
         $responseClass = $request->getResponseClassName();
-        $responseObject = new $responseClass();
         $result = json_decode($response->getBody(), true);
+        $responseObject = new $responseClass();
         if (isset($result["result"])) {
             if (method_exists($responseObject, "manualMapping")) {
                 $responseObject->manualMapping($result["result"]);

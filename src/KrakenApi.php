@@ -23,6 +23,8 @@ use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
+use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesRequest;
+use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
@@ -179,6 +181,19 @@ class KrakenApi
         $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
+    }
+
+    /**
+     * @param string      $assetPair
+     * @param null|string $since
+     *
+     * @return ResponseInterface|RecentTradesResponse
+     */
+    public function getRecentTrades($assetPair, $since = null)
+    {
+        $recentTradeRequest = new RecentTradesRequest($assetPair, $since);
+
+        return $this->doRequest($recentTradeRequest);
     }
 
     /**

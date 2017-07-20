@@ -16,7 +16,7 @@ You can use the existing sources but they may will be changed
 - [x] GetTickerInformation
 - [ ] GetOHLCData
 - [x] GetOrderBook
-- [ ] GetRecentTrades
+- [x] GetRecentTrades
 - [ ] GetRecentSpreadData
 
 **Private**
