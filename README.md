@@ -12,12 +12,12 @@ You can use the existing sources but they may will be changed
 **Public**
 - [x] GetServerTime
 - [x] GetAssets
-- [ ] GetTradeableAssetPairs
+- [x] GetTradeableAssetPairs
 - [x] GetTickerInformation
 - [ ] GetOHLCData
 - [x] GetOrderBook
 - [x] GetRecentTrades
-- [ ] GetRecentSpreadData
+- [x] GetRecentSpreadData
 
 **Private**
 - [x] GetAccountBalance

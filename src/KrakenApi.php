@@ -30,6 +30,8 @@ use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
+use HanischIt\KrakenApi\Model\SpreadData\SpreadDataRequest;
+use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsRequest;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
 use HanischIt\KrakenApi\Service\RequestService\Nonce;
@@ -185,7 +187,8 @@ class KrakenApi
         $end = null,
         $ofs = null,
         $closetime = null
-    ) {
+    )
+    {
         $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
@@ -202,6 +205,18 @@ class KrakenApi
         $recentTradeRequest = new RecentTradesRequest($assetPair, $since);
 
         return $this->doRequest($recentTradeRequest);
+    }
+
+    /**
+     * @param string $assetPair
+     * @param string $since
+     * @return ResponseInterface|SpreadDataResponse
+     */
+    public function getSpreadData($assetPair, $since = null)
+    {
+        $spreadDataRequest = new SpreadDataRequest($assetPair, $since);
+
+        return $this->doRequest($spreadDataRequest);
     }
 
     /**
