@@ -30,6 +30,8 @@ use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
+use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsRequest;
+use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
 use HanischIt\KrakenApi\Service\RequestService\Nonce;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use HanischIt\KrakenApi\Service\RequestService\RequestHeader;
@@ -103,9 +105,9 @@ class KrakenApi
     }
 
     /**
-     * @param string     $pair
-     * @param string     $type
-     * @param string     $orderType
+     * @param string $pair
+     * @param string $type
+     * @param string $orderType
      * @param null|float $price
      * @param null|float $volume
      *
@@ -141,7 +143,7 @@ class KrakenApi
     }
 
     /**
-     * @param string   $assetPair
+     * @param string $assetPair
      * @param int|null $count
      *
      * @return ResponseInterface|OrderBookResponse
@@ -167,24 +169,30 @@ class KrakenApi
     }
 
     /**
-     * @param bool        $trades
-     * @param null        $userref
+     * @param bool $trades
+     * @param null $userref
      * @param null|string $start
      * @param null|string $end
-     * @param null|int    $ofs
+     * @param null|int $ofs
      * @param null|string $closetime
      *
      * @return ClosedOrdersResponse|ResponseInterface
      */
-    public function getClosedOrders($trades = false, $userref = null, $start = null, $end = null, $ofs = null, $closetime = null)
-    {
+    public function getClosedOrders(
+        $trades = false,
+        $userref = null,
+        $start = null,
+        $end = null,
+        $ofs = null,
+        $closetime = null
+    ) {
         $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
     }
 
     /**
-     * @param string      $assetPair
+     * @param string $assetPair
      * @param null|string $since
      *
      * @return ResponseInterface|RecentTradesResponse
@@ -194,6 +202,21 @@ class KrakenApi
         $recentTradeRequest = new RecentTradesRequest($assetPair, $since);
 
         return $this->doRequest($recentTradeRequest);
+    }
+
+    /**
+     * @param string $info
+     * @param array|null $assetPairs
+     * @return ResponseInterface|TradableAssetPairsResponse
+     */
+    public function getTradableAssetPairs($info, array $assetPairs = null)
+    {
+        if (null !== $assetPairs) {
+            $assetPairs = implode(',', $assetPairs);
+        }
+        $tradableAssetPairs = new TradableAssetPairsRequest($info, $assetPairs);
+
+        return $this->doRequest($tradableAssetPairs);
     }
 
     /**

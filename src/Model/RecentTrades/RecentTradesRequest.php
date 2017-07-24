@@ -13,11 +13,11 @@ use HanischIt\KrakenApi\Model\RequestInterface;
 class RecentTradesRequest implements RequestInterface
 {
     /**
-     * @var
+     * @var string
      */
     private $assetPair;
     /**
-     * @var
+     * @var string
      */
     private $since;
 

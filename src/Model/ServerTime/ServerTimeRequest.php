@@ -44,6 +44,6 @@ class ServerTimeRequest implements RequestInterface
      */
     public function getResponseClassName()
     {
-        return ServerTimeResponse::class;
+        return TradableAssetPairsResponse::class;
     }
 }
