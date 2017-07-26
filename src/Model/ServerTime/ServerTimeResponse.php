@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-class ServerTimeResponse implements ResponseInterface
+class ServerTimeResponse implements ResponseInterface, ServerTimeResponseInterface
 {
 
     /**

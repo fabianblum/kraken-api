@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\OrderBook
  */
-class OrderBookResponse implements ResponseInterface
+class OrderBookResponse implements ResponseInterface, OrderBookResponseInterface
 {
     /**
      * @var string

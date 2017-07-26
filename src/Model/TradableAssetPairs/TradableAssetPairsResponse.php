@@ -8,7 +8,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  * Class TradableAssetPairsResponse
  * @package HanischIt\KrakenApi\Model\TradableAssetPairs
  */
-class TradableAssetPairsResponse implements ResponseInterface
+class TradableAssetPairsResponse implements ResponseInterface, TradableAssetPairsResponseInterface
 {
     /**
      * @var AssetPairModel[]

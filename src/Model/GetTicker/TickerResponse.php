@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\GetTicker
  */
-class TickerResponse implements ResponseInterface
+class TickerResponse implements ResponseInterface, TickerResponseInterface
 {
     /**
      * @var TickerModel[]

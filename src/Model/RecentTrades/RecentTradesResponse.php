@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\AccountBalance
  */
-class RecentTradesResponse implements ResponseInterface
+class RecentTradesResponse implements ResponseInterface, RecentTradesResponseInterface
 {
     /**
      * @var RecentTradeModel[][]

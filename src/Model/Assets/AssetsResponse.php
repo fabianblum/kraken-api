@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\Assets
  */
-class AssetsResponse implements ResponseInterface
+class AssetsResponse implements ResponseInterface, AssetsResponseInterface
 {
     /**
      * @var AssetModel[]

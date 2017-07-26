@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\AddOrderResponse
  */
-class AddOrderResponse implements ResponseInterface
+class AddOrderResponse implements ResponseInterface, AddOrderResponseInterface
 {
 
     /**

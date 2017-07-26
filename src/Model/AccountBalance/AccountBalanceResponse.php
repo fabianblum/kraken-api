@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Mod
  */
-class AccountBalanceResponse implements ResponseInterface
+class AccountBalanceResponse implements ResponseInterface, AccountBalanceResponseInterface
 {
     /**
      * @var AccountBalanceModel[]

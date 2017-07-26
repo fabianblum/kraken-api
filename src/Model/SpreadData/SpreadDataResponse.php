@@ -8,7 +8,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  * Class SpreadDataResponse
  * @package HanischIt\KrakenApi\Model\SpreadData
  */
-class SpreadDataResponse implements ResponseInterface
+class SpreadDataResponse implements ResponseInterface, SpreadDataResponseInterface
 {
     /**
      * @var int

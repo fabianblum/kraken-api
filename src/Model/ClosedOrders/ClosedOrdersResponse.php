@@ -9,7 +9,7 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
  *
  * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-class ClosedOrdersResponse implements ResponseInterface
+class ClosedOrdersResponse implements ResponseInterface, ClosedOrdersResponseInterface
 {
     /**
      * @var ClosedOrderModel[]
