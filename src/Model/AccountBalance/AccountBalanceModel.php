@@ -25,7 +25,7 @@ class AccountBalanceModel
     /**
      * AccountBalanceModel constructor.
      *
-     * @param float $assetName
+     * @param string $assetName
      * @param float $balance
      */
     public function __construct($assetName, $balance)
@@ -35,7 +35,7 @@ class AccountBalanceModel
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getAssetName()
     {
