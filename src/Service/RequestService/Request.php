@@ -9,7 +9,6 @@ namespace HanischIt\KrakenApi\Service\RequestService;
 
 use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\External\HttpClient;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
@@ -23,36 +22,30 @@ use HanischIt\KrakenApi\Model\ResponseInterface;
 class Request implements RequestServiceInterface
 {
     /**
-     * @var HttpClient
+     * @var PostRequest
      */
-    private $client;
+    private $postRequest;
     /**
-     * @var RequestHeader
+     * @var GetRequest
      */
-    private $requestHeader;
-    /**
-     * @var Nonce
-     */
-    private $nonce;
+    private $getRequest;
 
     /**
      * Request constructor.
      *
-     * @param HttpClient    $client
-     * @param RequestHeader $requestHeader
-     * @param Nonce         $nonce
+     * @param PostRequest $postRequest
+     * @param GetRequest $getRequest
      */
-    public function __construct(HttpClient $client, RequestHeader $requestHeader, Nonce $nonce)
+    public function __construct(PostRequest $postRequest, GetRequest $getRequest)
     {
-        $this->client = $client;
-        $this->requestHeader = $requestHeader;
-        $this->nonce = $nonce;
+        $this->postRequest = $postRequest;
+        $this->getRequest = $getRequest;
     }
 
     /**
      * @param RequestInterface $request
-     * @param RequestOptions   $requestOptions
-     * @param Header           $header
+     * @param RequestOptions $requestOptions
+     * @param Header $header
      *
      * @return ResponseInterface
      */
@@ -61,9 +54,9 @@ class Request implements RequestServiceInterface
         $method = $request->getVisibility() == VisibilityEnum::VISIBILITY_PRIVATE ? RequestMethodEnum::REQUEST_METHOD_POST : RequestMethodEnum::REQUEST_METHOD_GET;
 
         if ($method === RequestMethodEnum::REQUEST_METHOD_POST) {
-            $response = (new PostRequest($this->client, $this->requestHeader, $this->nonce))->execute($request, $requestOptions, $header);
+            $response = $this->postRequest->execute($request, $requestOptions, $header);
         } else {
-            $response = (new GetRequest($this->client, $this->requestHeader))->execute($request, $requestOptions);
+            $response = $this->getRequest->execute($request, $requestOptions);
         }
 
         $responseClass = $request->getResponseClassName();

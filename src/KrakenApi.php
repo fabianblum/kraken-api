@@ -34,7 +34,9 @@ use HanischIt\KrakenApi\Model\SpreadData\SpreadDataRequest;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsRequest;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
+use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use HanischIt\KrakenApi\Service\RequestService\Nonce;
+use HanischIt\KrakenApi\Service\RequestService\PostRequest;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use HanischIt\KrakenApi\Service\RequestService\RequestHeader;
 
@@ -46,44 +48,37 @@ use HanischIt\KrakenApi\Service\RequestService\RequestHeader;
 class KrakenApi
 {
     /**
-     * @var HttpClient
+     * @var RequestOptions
      */
-    private $httpClient;
+    private $requestOptions;
     /**
-     * @var RequestHeader
+     * @var Header
      */
-    private $requestHeader;
+    private $header;
     /**
-     * @var string
+     * @var Request
      */
-    private $apiKey;
-    /**
-     * @var string
-     */
-    private $apiSign;
-    /**
-     * @var string
-     */
-    private $version;
-    /**
-     * @var string
-     */
-    private $endpoint;
+    private $request;
 
     /**
      * KrakenApi constructor.
      *
      * @param string $apiKey
      * @param string $apiSign
+     * @param string $version
+     * @param string $endpoint
      */
-    public function __construct($apiKey, $apiSign)
+    public function __construct($apiKey, $apiSign, $version = '0', $endpoint = 'https://api.kraken.com/')
     {
-        $this->httpClient = new HttpClient(['verify' => false]);
-        $this->requestHeader = new RequestHeader();
-        $this->endpoint = 'https://api.kraken.com/';
-        $this->version = '0';
-        $this->apiKey = $apiKey;
-        $this->apiSign = $apiSign;
+        $httpClient = new HttpClient(['verify' => false]);
+        $requestHeader = new RequestHeader();
+        $nonce = new Nonce();
+
+        $this->requestOptions = new RequestOptions($endpoint, $version);
+        $postRequest = new PostRequest($httpClient, $requestHeader, $nonce);
+        $getRequest = new GetRequest($httpClient, $requestHeader);
+        $this->request = new Request($postRequest, $getRequest);
+        $this->header = new Header($apiKey, $apiSign);
     }
 
     /**
@@ -187,8 +182,7 @@ class KrakenApi
         $end = null,
         $ofs = null,
         $closetime = null
-    )
-    {
+    ) {
         $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
@@ -241,11 +235,6 @@ class KrakenApi
      */
     private function doRequest(RequestInterface $requestInterface)
     {
-        $requestOptions = new RequestOptions($this->endpoint, $this->version);
-        $header = new Header($this->apiKey, $this->apiSign);
-        $nonce = new Nonce();
-        $request = new Request($this->httpClient, $this->requestHeader, $nonce);
-
-        return $request->execute($requestInterface, $requestOptions, $header);
+        return $this->request->execute($requestInterface, $this->requestOptions, $this->header);
     }
 }
