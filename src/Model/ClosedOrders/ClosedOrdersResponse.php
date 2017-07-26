@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class ClosedOrdersResponse
  *
  * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-class ClosedOrdersResponse implements ResponseInterface, ClosedOrdersResponseInterface
+class ClosedOrdersResponse implements ClosedOrdersResponseInterface
 {
     /**
      * @var ClosedOrderModel[]

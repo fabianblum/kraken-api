@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\AddOrder;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class AddOrderResponse
  *
  * @package HanischIt\KrakenApi\Model\AddOrderResponse
  */
-class AddOrderResponse implements ResponseInterface, AddOrderResponseInterface
+class AddOrderResponse implements AddOrderResponseInterface
 {
 
     /**

@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class ClosedOrdersResponse
  *
  * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-interface ClosedOrdersResponseInterface
+interface ClosedOrdersResponseInterface extends ResponseInterface
 {
     /**
      * @param array $result

@@ -8,12 +8,14 @@
 
 namespace HanischIt\KrakenApi\Model\TradableAssetPairs;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class TradableAssetPairsResponse
  * @package HanischIt\KrakenApi\Model\TradableAssetPairs
  */
-interface TradableAssetPairsResponseInterface
+interface TradableAssetPairsResponseInterface extends ResponseInterface
 {
     /**
      * @param array $arr

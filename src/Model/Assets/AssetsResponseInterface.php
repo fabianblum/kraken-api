@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\Assets;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class AssetsResponse
  *
  * @package HanischIt\KrakenApi\Model\Assets
  */
-interface AssetsResponseInterface
+interface AssetsResponseInterface extends ResponseInterface
 {
     /**
      * @param array $result

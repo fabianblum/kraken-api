@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\AccountBalance;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class AccountBalanceResponse
  *
  * @package HanischIt\KrakenApi\Mod
  */
-interface AccountBalanceResponseInterface
+interface AccountBalanceResponseInterface extends ResponseInterface
 {
     /**
      * @param array $result

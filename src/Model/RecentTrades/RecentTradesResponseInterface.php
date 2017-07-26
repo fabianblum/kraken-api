@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\RecentTrades;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class RecentTradesResponse
  *
  * @package HanischIt\KrakenApi\Model\AccountBalance
  */
-interface RecentTradesResponseInterface
+interface RecentTradesResponseInterface extends ResponseInterface
 {
     /**
      * @param $result

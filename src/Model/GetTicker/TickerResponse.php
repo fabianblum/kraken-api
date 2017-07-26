@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\GetTicker;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class ServerTimeResponse
  *
  * @package HanischIt\KrakenApi\Model\GetTicker
  */
-class TickerResponse implements ResponseInterface, TickerResponseInterface
+class TickerResponse implements TickerResponseInterface
 {
     /**
      * @var TickerModel[]

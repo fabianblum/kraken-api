@@ -2,13 +2,11 @@
 
 namespace HanischIt\KrakenApi\Model\TradableAssetPairs;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class TradableAssetPairsResponse
  * @package HanischIt\KrakenApi\Model\TradableAssetPairs
  */
-class TradableAssetPairsResponse implements ResponseInterface, TradableAssetPairsResponseInterface
+class TradableAssetPairsResponse implements TradableAssetPairsResponseInterface
 {
     /**
      * @var AssetPairModel[]

@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\AccountBalance;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class AccountBalanceResponse
  *
  * @package HanischIt\KrakenApi\Mod
  */
-class AccountBalanceResponse implements ResponseInterface, AccountBalanceResponseInterface
+class AccountBalanceResponse implements AccountBalanceResponseInterface
 {
     /**
      * @var AccountBalanceModel[]

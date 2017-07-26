@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\ServerTime;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class ServerTimeResponse
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-class ServerTimeResponse implements ResponseInterface, ServerTimeResponseInterface
+class ServerTimeResponse implements ServerTimeResponseInterface
 {
 
     /**

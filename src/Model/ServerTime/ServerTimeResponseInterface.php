@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\ServerTime;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class ServerTimeResponse
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-interface ServerTimeResponseInterface
+interface ServerTimeResponseInterface extends ResponseInterface
 {
     /**
      * @return string

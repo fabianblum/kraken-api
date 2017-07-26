@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\OpenOrders;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class OpenOrdersResponse
  *
  * @package HanischIt\KrakenApi\Model\OpenOrders
  */
-interface OpenOrdersResponseInterface
+interface OpenOrdersResponseInterface extends ResponseInterface
 {
     /**
      * @param array $result

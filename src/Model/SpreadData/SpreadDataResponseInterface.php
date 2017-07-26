@@ -8,12 +8,14 @@
 
 namespace HanischIt\KrakenApi\Model\SpreadData;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class SpreadDataResponse
  * @package HanischIt\KrakenApi\Model\SpreadData
  */
-interface SpreadDataResponseInterface
+interface SpreadDataResponseInterface extends ResponseInterface
 {
     /**
      * @param array $result

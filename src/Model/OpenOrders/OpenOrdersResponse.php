@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\OpenOrders;
 
-use HanischIt\KrakenApi\Model\ResponseInterface;
-
 /**
  * Class OpenOrdersResponse
  *
  * @package HanischIt\KrakenApi\Model\OpenOrders
  */
-class OpenOrdersResponse implements ResponseInterface, OpenOrdersResponseInterface
+class OpenOrdersResponse implements OpenOrdersResponseInterface
 {
     /**
      * @var OpenOrderModel[]

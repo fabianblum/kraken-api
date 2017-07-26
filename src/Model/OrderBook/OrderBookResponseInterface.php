@@ -8,13 +8,15 @@
 
 namespace HanischIt\KrakenApi\Model\OrderBook;
 
+use HanischIt\KrakenApi\Model\ResponseInterface;
+
 
 /**
  * Class OrderBookResponse
  *
  * @package HanischIt\KrakenApi\Model\OrderBook
  */
-interface OrderBookResponseInterface
+interface OrderBookResponseInterface extends ResponseInterface
 {
     /**
      * @param array $result
