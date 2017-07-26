@@ -59,11 +59,11 @@ class AssetPairModel
      */
     private $leverageSell;
     /**
-     * @var string
+     * @var FeeModel[]
      */
     private $fees;
     /**
-     * @var string
+     * @var FeeModel[]
      */
     private $feesMaker;
     /**
@@ -97,8 +97,8 @@ class AssetPairModel
      * @param string $lotMultiplier
      * @param string $leverageBuy
      * @param string $leverageSell
-     * @param string $fees
-     * @param string $feesMaker
+     * @param FeeModel[] $fees
+     * @param FeeModel[] $feesMaker
      * @param string $feeVolumeCurrency
      * @param string $marginCall
      * @param string $marginStop
@@ -239,7 +239,7 @@ class AssetPairModel
     }
 
     /**
-     * @return string
+     * @return FeeModel[]
      */
     public function getFees()
     {
@@ -247,7 +247,7 @@ class AssetPairModel
     }
 
     /**
-     * @return string
+     * @return FeeModel[]
      */
     public function getFeesMaker()
     {

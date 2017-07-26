@@ -14,7 +14,7 @@ namespace HanischIt\KrakenApi\Model\AccountBalance;
 class AccountBalanceModel
 {
     /**
-     * @var float
+     * @var string
      */
     private $assetName;
     /**

@@ -58,7 +58,7 @@ class OpenOrdersRequest implements RequestInterface
     {
         $arr = [];
         $arr["trades"] = $this->trades;
-        if ($this->userref) {
+        if (null !== $this->userref) {
             $arr["userref"] = $this->userref;
         }
 

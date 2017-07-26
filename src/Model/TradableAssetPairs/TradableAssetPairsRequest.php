@@ -55,6 +55,7 @@ class TradableAssetPairsRequest implements RequestInterface
      */
     public function getRequestData()
     {
+        $arr = [];
         $arr["info"] = $this->info;
         if (null !== $this->pair) {
             $ret["pair"] = $this->pair;

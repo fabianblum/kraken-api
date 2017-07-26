@@ -82,19 +82,19 @@ class ClosedOrdersRequest implements RequestInterface
     {
         $arr = [];
         $arr["trades"] = $this->trades;
-        if ($this->userref) {
+        if (null !== $this->userref) {
             $arr["userref"] = $this->userref;
         }
-        if ($this->start) {
+        if (null !== $this->start) {
             $arr["start"] = $this->start;
         }
-        if ($this->end) {
+        if (null !== $this->end) {
             $arr["end"] = $this->end;
         }
-        if ($this->ofs) {
+        if (null !== $this->ofs) {
             $arr["ofs"] = $this->ofs;
         }
-        if ($this->closetime) {
+        if (null !== $this->closetime) {
             $arr["closetime"] = $this->closetime;
         }
 
