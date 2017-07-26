@@ -62,6 +62,4 @@ class OrderBookModel
     {
         return $this->timestamp;
     }
-
-
 }

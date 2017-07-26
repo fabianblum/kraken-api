@@ -15,5 +15,4 @@ namespace HanischIt\KrakenApi\Model;
  */
 interface ResponseInterface
 {
-
 }

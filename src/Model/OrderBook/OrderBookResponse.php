@@ -67,6 +67,4 @@ class OrderBookResponse implements ResponseInterface
     {
         return $this->bids;
     }
-
-
 }
