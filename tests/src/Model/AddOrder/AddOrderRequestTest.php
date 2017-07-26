@@ -22,7 +22,7 @@ class AddOrderRequestTest extends TestCase
         $orderType = uniqid();
         $price = rand(100, 99999) / 100;
         $volume = rand(100, 909999999) / 1000;
-        $validateOnly = 1 === rand(1, 0);
+        $validateOnly = true;
 
         $ret = [];
         $ret["pair"] = $pair;
