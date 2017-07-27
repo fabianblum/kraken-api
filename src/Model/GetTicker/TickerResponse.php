@@ -76,7 +76,7 @@ class TickerResponse implements TickerResponseInterface
     /**
      * @param string $assetPair
      *
-     * @return mixed
+     * @return PriceVolumeModel
      * @throws \Exception
      */
     public function getLastTradeClosed($assetPair)

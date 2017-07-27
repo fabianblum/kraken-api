@@ -94,14 +94,6 @@ class TickerModel
     }
 
     /**
-     * @return string
-     */
-    public function getAssetPair()
-    {
-        return $this->assetPair;
-    }
-
-    /**
      * @return AskBidModel
      */
     public function getAsk()

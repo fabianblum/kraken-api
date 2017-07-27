@@ -25,6 +25,9 @@ class RecentTradesResponse implements RecentTradesResponseInterface
     {
         $this->last = $result["last"];
         foreach ($result as $assetName => $trades) {
+            if ($assetName == "last") {
+                continue;
+            }
             foreach ($trades as $trade) {
                 $this->tradeModel[$assetName][] = new RecentTradeModel($trade[0], $trade[1], $trade[2], $trade[3], $trade[4], $trade[5]);
             }
