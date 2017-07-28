@@ -82,6 +82,14 @@ class KrakenApi
     }
 
     /**
+     * @param Request $request
+     */
+    public function setRequest(Request $request)
+    {
+        $this->request = $request;
+    }
+
+    /**
      * @return ServerTimeResponse|ResponseInterface
      */
     public function getServerTime()
@@ -182,7 +190,8 @@ class KrakenApi
         $end = null,
         $ofs = null,
         $closetime = null
-    ) {
+    )
+    {
         $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);

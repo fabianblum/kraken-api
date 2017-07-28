@@ -23,9 +23,9 @@ class TradableAssetPairsRequest implements RequestInterface
     /**
      * TradableAssetPairsRequest constructor.
      * @param string $info
-     * @param array $pair
+     * @param string $pair
      */
-    public function __construct($info = 'info', array $pair = null)
+    public function __construct($info = 'info', $pair = null)
     {
         $this->info = $info;
         $this->pair = $pair;
