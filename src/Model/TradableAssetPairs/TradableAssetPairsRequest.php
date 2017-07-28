@@ -58,7 +58,7 @@ class TradableAssetPairsRequest implements RequestInterface
         $arr = [];
         $arr["info"] = $this->info;
         if (null !== $this->pair) {
-            $ret["pair"] = $this->pair;
+            $arr["pair"] = $this->pair;
         }
         return $arr;
     }
