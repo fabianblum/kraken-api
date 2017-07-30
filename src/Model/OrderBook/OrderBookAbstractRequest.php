@@ -3,14 +3,14 @@
 namespace HanischIt\KrakenApi\Model\OrderBook;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class OrderBookRequest
+ * Class OrderBookAbstractRequest
  *
  * @package HanischIt\KrakenApi\Model\OrderBook
  */
-class OrderBookRequest implements RequestInterface
+class OrderBookAbstractRequest extends AbstractRequest
 {
     /**
      * @var
@@ -22,7 +22,7 @@ class OrderBookRequest implements RequestInterface
     private $count;
 
     /**
-     * OrderBookRequest constructor.
+     * OrderBookAbstractRequest constructor.
      * @param $assetPair
      * @param null $count
      */

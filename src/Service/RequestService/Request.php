@@ -10,13 +10,14 @@ namespace HanischIt\KrakenApi\Service\RequestService;
 use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
 use HanischIt\KrakenApi\Exception\ApiException;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
-use HanischIt\KrakenApi\Model\ResponseInterface;
+use HanischIt\KrakenApi\Model\Response;
 
 /**
- * Class Request
+ * Class AbstractRequest
  *
  * @package HanischIt\KrakenApi\Service\RequestService
  */
@@ -32,7 +33,7 @@ class Request implements RequestServiceInterface
     private $getRequest;
 
     /**
-     * Request constructor.
+     * AbstractRequest constructor.
      *
      * @param PostRequest $postRequest
      * @param GetRequest $getRequest
@@ -44,13 +45,13 @@ class Request implements RequestServiceInterface
     }
 
     /**
-     * @param RequestInterface $request
+     * @param AbstractRequest $request
      * @param RequestOptions $requestOptions
      * @param Header $header
      *
-     * @return ResponseInterface
+     * @return Response
      */
-    public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
+    public function execute(AbstractRequest $request, RequestOptions $requestOptions, Header $header)
     {
         $method = $request->getVisibility() == VisibilityEnum::VISIBILITY_PRIVATE ? RequestMethodEnum::REQUEST_METHOD_POST : RequestMethodEnum::REQUEST_METHOD_GET;
 

@@ -9,6 +9,7 @@ namespace HanischIt\KrakenApi\Service\RequestService;
 
 use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\External\HttpClient;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
@@ -34,7 +35,7 @@ class PostRequest
     private $nonce;
 
     /**
-     * Request constructor.
+     * AbstractRequest constructor.
      *
      * @param HttpClient    $client
      * @param RequestHeader $requestHeader
@@ -48,13 +49,13 @@ class PostRequest
     }
 
     /**
-     * @param RequestInterface $request
+     * @param AbstractRequest $request
      * @param RequestOptions   $requestOptions
      * @param Header           $header
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header)
+    public function execute(AbstractRequest $request, RequestOptions $requestOptions, Header $header)
     {
         $nonce = $this->nonce->generate();
         $requestData = $request->getRequestData();

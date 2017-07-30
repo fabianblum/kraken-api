@@ -3,13 +3,13 @@
 namespace HanischIt\KrakenApi\Model\OrdersInfo;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class OrdersInfoRequest
+ * Class OrdersInfoAbstractRequest
  * @package HanischIt\KrakenApi\Model\OrdersInfo
  */
-class OrdersInfoRequest implements RequestInterface
+class OrdersInfoAbstractRequest extends AbstractRequest
 {
     /**
      * @var bool
@@ -25,7 +25,7 @@ class OrdersInfoRequest implements RequestInterface
     private $txids;
 
     /**
-     * OrdersInfoRequest constructor.
+     * OrdersInfoAbstractRequest constructor.
      * @param bool $trades
      * @param null|string $userref
      * @param null|string[] $txids

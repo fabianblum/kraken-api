@@ -1,36 +1,38 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\SpreadData;
+namespace HanischIt\KrakenApi\Model\RecentTrades;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class SpreadDataRequest
+ * Class RecentTradesAbstractRequest
  *
- * @package HanischIt\KrakenApi\Model\SpreadData
+ * @package HanischIt\Model\RecentTrades
  */
-class SpreadDataRequest implements RequestInterface
+class RecentTradesAbstractRequest extends AbstractRequest
 {
     /**
-     * @var
+     * @var string
      */
     private $assetPair;
     /**
-     * @var null
+     * @var string
      */
     private $since;
 
     /**
-     * OrderBookRequest constructor.
-     * @param $assetPair
-     * @param null|mixed $since
+     * RecentTradesAbstractRequest constructor.
+     *
+     * @param string $assetPair
+     * @param string $since
      */
-    public function __construct($assetPair, $since = null)
+    public function __construct($assetPair, $since)
     {
         $this->assetPair = $assetPair;
         $this->since = $since;
     }
+
 
     /**
      * Returns the api request name
@@ -39,7 +41,7 @@ class SpreadDataRequest implements RequestInterface
      */
     public function getMethod()
     {
-        return 'Spread';
+        return 'Trades';
     }
 
     /**
@@ -55,12 +57,13 @@ class SpreadDataRequest implements RequestInterface
      */
     public function getRequestData()
     {
-        $arr = [];
-        $arr["pair"] = $this->assetPair;
+        $ret = [];
+        $ret['pair'] = $this->assetPair;
         if ($this->since) {
-            $arr["since"] = $this->since;
+            $ret['since'] = $this->since;
         }
-        return $arr;
+
+        return $ret;
     }
 
     /**
@@ -68,6 +71,6 @@ class SpreadDataRequest implements RequestInterface
      */
     public function getResponseClassName()
     {
-        return SpreadDataResponse::class;
+        return RecentTradesResponse::class;
     }
 }

@@ -9,7 +9,7 @@
 namespace src\Model\AccountBalance;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceRequest;
+use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceAbstractRequest;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class AccountBalanceRequestTest extends TestCase
 {
     public function testRequest()
     {
-        $accountBalanceRequest = new AccountBalanceRequest();
+        $accountBalanceRequest = new AccountBalanceAbstractRequest();
         self::assertEquals($accountBalanceRequest->getMethod(), 'Balance');
         self::assertEquals($accountBalanceRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($accountBalanceRequest->getRequestData(), []);

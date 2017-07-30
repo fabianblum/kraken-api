@@ -4,13 +4,14 @@ namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
 use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
+use HanischIt\KrakenApi\Model\Response;
 
 /**
  * Class ClosedOrdersResponse
  *
  * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-class ClosedOrdersResponse implements ClosedOrdersResponseInterface
+class ClosedOrdersResponse extends Response
 {
     /**
      * @var OrderModel[]

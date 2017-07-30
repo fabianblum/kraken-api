@@ -4,6 +4,7 @@ namespace HanischIt\KrakenApi\Model\OpenOrders;
 
 use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
+use HanischIt\KrakenApi\Model\Response;
 
 
 /**
@@ -11,7 +12,7 @@ use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
  *
  * @package HanischIt\KrakenApi\Model\OpenOrders
  */
-class OpenOrdersResponse implements OpenOrdersResponseInterface
+class OpenOrdersResponse extends Response
 {
     /**
      * @var OrderModel[]

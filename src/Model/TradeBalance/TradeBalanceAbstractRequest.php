@@ -3,14 +3,14 @@
 namespace HanischIt\KrakenApi\Model\TradeBalance;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class ServerTimeRequest
+ * Class ServerTimeAbstractRequest
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-class TradeBalanceRequest implements RequestInterface
+class TradeBalanceAbstractRequest extends AbstractRequest
 {
     /**
      * @var string
@@ -22,7 +22,7 @@ class TradeBalanceRequest implements RequestInterface
     private $asset;
 
     /**
-     * TradeBalanceRequest constructor.
+     * TradeBalanceAbstractRequest constructor.
      * @param string $aclass
      * @param string $asset
      */

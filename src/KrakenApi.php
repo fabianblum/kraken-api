@@ -8,42 +8,41 @@
 namespace HanischIt\KrakenApi;
 
 use HanischIt\KrakenApi\External\HttpClient;
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceRequest;
+use HanischIt\KrakenApi\Model\AbstractRequest;
+use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceAbstractRequest;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
-use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
+use HanischIt\KrakenApi\Model\AddOrder\AddOrderAbstractRequest;
 use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
-use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
+use HanischIt\KrakenApi\Model\Assets\AssetsAbstractRequest;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
-use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersRequest;
+use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersAbstractRequest;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
-use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
+use HanischIt\KrakenApi\Model\GetTicker\TickerAbstractRequest;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\Header;
-use HanischIt\KrakenApi\Model\OHLCData\OHLCDataRequest;
+use HanischIt\KrakenApi\Model\OHLCData\OHLCDataAbstractRequest;
 use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
+use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersAbstractRequest;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
-use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
+use HanischIt\KrakenApi\Model\OrderBook\OrderBookAbstractRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
-use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoRequest;
+use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoAbstractRequest;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
-use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesRequest;
+use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesAbstractRequest;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
-use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
-use HanischIt\KrakenApi\Model\ResponseInterface;
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
+use HanischIt\KrakenApi\Model\Response;
+use HanischIt\KrakenApi\Model\ServerTime\ServerTimeAbstractRequest;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataRequest;
+use HanischIt\KrakenApi\Model\SpreadData\SpreadDataAbstractRequest;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
-use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsRequest;
+use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsAbstractRequest;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
-use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceRequest;
+use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceAbstractRequest;
 use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use HanischIt\KrakenApi\Service\RequestService\Nonce;
 use HanischIt\KrakenApi\Service\RequestService\PostRequest;
-use HanischIt\KrakenApi\Service\RequestService\Request;
 use HanischIt\KrakenApi\Service\RequestService\RequestHeader;
 
 /**
@@ -62,7 +61,7 @@ class KrakenApi
      */
     private $header;
     /**
-     * @var Request
+     * @var AbstractRequest
      */
     private $request;
 
@@ -83,34 +82,34 @@ class KrakenApi
         $this->requestOptions = new RequestOptions($endpoint, $version);
         $postRequest = new PostRequest($httpClient, $requestHeader, $nonce);
         $getRequest = new GetRequest($httpClient, $requestHeader);
-        $this->request = new Request($postRequest, $getRequest);
+        $this->request = new Service\RequestService\Request($postRequest, $getRequest);
         $this->header = new Header($apiKey, $apiSign);
     }
 
     /**
-     * @param Request $request
+     * @param Service\RequestService\Request $request
      */
-    public function setRequest(Request $request)
+    public function setRequest(Service\RequestService\Request $request)
     {
         $this->request = $request;
     }
 
     /**
-     * @return ServerTimeResponse|ResponseInterface
+     * @return ServerTimeResponse|Response
      */
     public function getServerTime()
     {
-        $serverTimeRequest = new ServerTimeRequest();
+        $serverTimeRequest = new ServerTimeAbstractRequest();
 
         return $this->doRequest($serverTimeRequest);
     }
 
     /**
-     * @return AccountBalanceResponse|ResponseInterface
+     * @return AccountBalanceResponse|Response
      */
     public function getAccountBalance()
     {
-        $accountBalanceRequest = new AccountBalanceRequest();
+        $accountBalanceRequest = new AccountBalanceAbstractRequest();
 
         return $this->doRequest($accountBalanceRequest);
     }
@@ -122,21 +121,21 @@ class KrakenApi
      * @param null|float $price
      * @param null|float $volume
      *
-     * @return ResponseInterface|AddOrderResponse
+     * @return Response|AddOrderResponse
      */
     public function addOrder($pair, $type, $orderType, $price = null, $volume = null)
     {
-        $addOrderRequest = new AddOrderRequest($pair, $type, $orderType, $price, $volume);
+        $addOrderRequest = new AddOrderAbstractRequest($pair, $type, $orderType, $price, $volume);
 
         return $this->doRequest($addOrderRequest);
     }
 
     /**
-     * @return ResponseInterface|AssetsResponse
+     * @return Response|AssetsResponse
      */
     public function getAssets()
     {
-        $assetsRequest = new AssetsRequest();
+        $assetsRequest = new AssetsAbstractRequest();
 
         return $this->doRequest($assetsRequest);
     }
@@ -144,11 +143,11 @@ class KrakenApi
     /**
      * @param array $assetNames
      *
-     * @return ResponseInterface|TickerResponse
+     * @return Response|TickerResponse
      */
     public function getTicker(array $assetNames)
     {
-        $tickerRequest = new TickerRequest($assetNames);
+        $tickerRequest = new TickerAbstractRequest($assetNames);
 
         return $this->doRequest($tickerRequest);
     }
@@ -157,11 +156,11 @@ class KrakenApi
      * @param string $assetPair
      * @param int|null $count
      *
-     * @return ResponseInterface|OrderBookResponse
+     * @return Response|OrderBookResponse
      */
     public function getOrderBook($assetPair, $count = null)
     {
-        $orderBookRequest = new OrderBookRequest($assetPair, $count);
+        $orderBookRequest = new OrderBookAbstractRequest($assetPair, $count);
 
         return $this->doRequest($orderBookRequest);
     }
@@ -170,11 +169,11 @@ class KrakenApi
      * @param bool $trades
      * @param null $userref
      *
-     * @return ResponseInterface|OpenOrdersResponse
+     * @return Response|OpenOrdersResponse
      */
     public function getOpenOrders($trades = false, $userref = null)
     {
-        $orderBookRequest = new OpenOrdersRequest($trades, $userref);
+        $orderBookRequest = new OpenOrdersAbstractRequest($trades, $userref);
 
         return $this->doRequest($orderBookRequest);
     }
@@ -187,7 +186,7 @@ class KrakenApi
      * @param null|int $ofs
      * @param null|string $closetime
      *
-     * @return ClosedOrdersResponse|ResponseInterface
+     * @return ClosedOrdersResponse|Response
      */
     public function getClosedOrders(
         $trades = false,
@@ -198,7 +197,7 @@ class KrakenApi
         $closetime = null
     )
     {
-        $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
+        $orderBookRequest = new ClosedOrdersAbstractRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
     }
@@ -207,11 +206,11 @@ class KrakenApi
      * @param string $assetPair
      * @param null|string $since
      *
-     * @return ResponseInterface|RecentTradesResponse
+     * @return Response|RecentTradesResponse
      */
     public function getRecentTrades($assetPair, $since = null)
     {
-        $recentTradeRequest = new RecentTradesRequest($assetPair, $since);
+        $recentTradeRequest = new RecentTradesAbstractRequest($assetPair, $since);
 
         return $this->doRequest($recentTradeRequest);
     }
@@ -219,11 +218,11 @@ class KrakenApi
     /**
      * @param string $assetPair
      * @param string $since
-     * @return ResponseInterface|SpreadDataResponse
+     * @return Response|SpreadDataResponse
      */
     public function getSpreadData($assetPair, $since = null)
     {
-        $spreadDataRequest = new SpreadDataRequest($assetPair, $since);
+        $spreadDataRequest = new SpreadDataAbstractRequest($assetPair, $since);
 
         return $this->doRequest($spreadDataRequest);
     }
@@ -231,14 +230,14 @@ class KrakenApi
     /**
      * @param string $info
      * @param array|null $assetPairs
-     * @return ResponseInterface|TradableAssetPairsResponse
+     * @return Response|TradableAssetPairsResponse
      */
     public function getTradableAssetPairs($info, array $assetPairs = null)
     {
         if (null !== $assetPairs) {
             $assetPairs = implode(',', $assetPairs);
         }
-        $tradableAssetPairs = new TradableAssetPairsRequest($info, $assetPairs);
+        $tradableAssetPairs = new TradableAssetPairsAbstractRequest($info, $assetPairs);
 
         return $this->doRequest($tradableAssetPairs);
     }
@@ -247,11 +246,11 @@ class KrakenApi
      * @param string $assetPair
      * @param null|int $interval
      * @param null|int $since
-     * @return ResponseInterface|OHLCDataResponse
+     * @return Response|OHLCDataResponse
      */
     public function getOHLCData($assetPair, $interval = null, $since = null)
     {
-        $ohlcDataRequest = new OHLCDataRequest($assetPair, $interval, $since);
+        $ohlcDataRequest = new OHLCDataAbstractRequest($assetPair, $interval, $since);
 
         return $this->doRequest($ohlcDataRequest);
     }
@@ -260,11 +259,11 @@ class KrakenApi
      * @param array|null $txids
      * @param bool $trades
      * @param null|string $userref
-     * @return ResponseInterface|OrdersInfoResponse
+     * @return Response|OrdersInfoResponse
      */
     public function getOrdersInfo(array $txids, $trades = false, $userref = null)
     {
-        $ordersInfoRequest = new OrdersInfoRequest($txids, $trades, $userref);
+        $ordersInfoRequest = new OrdersInfoAbstractRequest($txids, $trades, $userref);
 
         return $this->doRequest($ordersInfoRequest);
     }
@@ -272,22 +271,22 @@ class KrakenApi
     /**
      * @param string|null $aclass
      * @param string|null $asset
-     * @return ResponseInterface|TradeBalanceResponse
+     * @return Response|TradeBalanceResponse
      */
     public function getTradeBalance($aclass = null, $asset = null)
     {
-        $tradeBalanceRequest = new TradeBalanceRequest($aclass, $asset);
+        $tradeBalanceRequest = new TradeBalanceAbstractRequest($aclass, $asset);
 
         return $this->doRequest($tradeBalanceRequest);
     }
 
     /**
-     * @param RequestInterface $requestInterface
+     * @param AbstractRequest $Request
      *
-     * @return ResponseInterface
+     * @return Response
      */
-    private function doRequest(RequestInterface $requestInterface)
+    private function doRequest(AbstractRequest $Request)
     {
-        return $this->request->execute($requestInterface, $this->requestOptions, $this->header);
+        return $this->request->execute($Request, $this->requestOptions, $this->header);
     }
 }

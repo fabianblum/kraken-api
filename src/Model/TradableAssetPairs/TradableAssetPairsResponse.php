@@ -2,11 +2,13 @@
 
 namespace HanischIt\KrakenApi\Model\TradableAssetPairs;
 
+use HanischIt\KrakenApi\Model\Response;
+
 /**
  * Class TradableAssetPairsResponse
  * @package HanischIt\KrakenApi\Model\TradableAssetPairs
  */
-class TradableAssetPairsResponse implements TradableAssetPairsResponseInterface
+class TradableAssetPairsResponse extends Response
 {
     /**
      * @var AssetPairModel[]
@@ -16,7 +18,7 @@ class TradableAssetPairsResponse implements TradableAssetPairsResponseInterface
     /**
      * @param array $arr
      */
-    public function manualMapping(array $arr)
+    public function manualMapping($arr)
     {
         foreach ($arr as $assetPair => $data) {
             $fees = [];

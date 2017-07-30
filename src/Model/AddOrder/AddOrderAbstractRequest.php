@@ -8,14 +8,14 @@
 namespace HanischIt\KrakenApi\Model\AddOrder;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class AddOrderRequest
+ * Class AddOrderAbstractRequest
  *
  * @package HanischIt\KrakenApi\Model\AddOrder
  */
-class AddOrderRequest implements RequestInterface
+class AddOrderAbstractRequest extends AbstractRequest
 {
     /**
      * @var string
@@ -43,7 +43,7 @@ class AddOrderRequest implements RequestInterface
     private $validateOnly;
 
     /**
-     * AddOrderRequest constructor.
+     * AddOrderAbstractRequest constructor.
      *
      * @param string $pair
      * @param string $type

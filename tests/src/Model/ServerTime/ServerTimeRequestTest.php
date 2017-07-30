@@ -9,7 +9,7 @@
 namespace src\Model\ServerTime;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
+use HanischIt\KrakenApi\Model\ServerTime\ServerTimeAbstractRequest;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class ServerTimeRequestTest extends TestCase
 {
     public function testRequest()
     {
-        $accountBalanceRequest = new ServerTimeRequest();
+        $accountBalanceRequest = new ServerTimeAbstractRequest();
         self::assertEquals($accountBalanceRequest->getMethod(), 'Time');
         self::assertEquals($accountBalanceRequest->getVisibility(), VisibilityEnum::VISIBILITY_PUBLIC);
         self::assertEquals($accountBalanceRequest->getRequestData(), []);

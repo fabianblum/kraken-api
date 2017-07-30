@@ -3,13 +3,13 @@
 namespace HanischIt\KrakenApi\Model\TradableAssetPairs;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class TradableAssetPairsRequest
+ * Class TradableAssetPairsAbstractRequest
  * @package HanischIt\KrakenApi\Model\TradableAssetPairs
  */
-class TradableAssetPairsRequest implements RequestInterface
+class TradableAssetPairsAbstractRequest extends AbstractRequest
 {
     /**
      * @var string
@@ -21,7 +21,7 @@ class TradableAssetPairsRequest implements RequestInterface
     private $pair;
 
     /**
-     * TradableAssetPairsRequest constructor.
+     * TradableAssetPairsAbstractRequest constructor.
      * @param string $info
      * @param string $pair
      */

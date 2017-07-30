@@ -7,6 +7,7 @@
 namespace tests\src\Service\RequestService;
 
 use HanischIt\KrakenApi\Enum\RequestMethodEnum;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use PHPUnit_Framework_TestCase;
 
@@ -71,7 +72,7 @@ class GetRequestTest extends PHPUnit_Framework_TestCase
      */
     public function getRequestInterfaceMock()
     {
-        $stub = $this->getMockBuilder('\HanischIt\KrakenApi\Model\RequestInterface')->disableOriginalConstructor()->getMock();
+        $stub = $this->getMockBuilder(AbstractRequest::class)->disableOriginalConstructor()->getMock();
 
         return $stub;
     }

@@ -9,9 +9,11 @@
 namespace tests\src\Service\RequestService;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
+use HanischIt\KrakenApi\Model\Response;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
@@ -52,7 +54,7 @@ class RequestTest extends TestCase
         $requestService = new Request($postRequest, $getRequest);
         $responseObj = $requestService->execute($requestInterface, $requestOptions, $header);
 
-        self::assertInstanceOf(ResponseInterface::class, $responseObj);
+        self::assertInstanceOf(Response::class, $responseObj);
     }
 
     /**
@@ -110,7 +112,7 @@ class RequestTest extends TestCase
         $requestService = new Request($postRequest, $getRequest);
         $responseObj = $requestService->execute($requestInterface, $requestOptions, $header);
 
-        self::assertInstanceOf(ResponseInterface::class, $responseObj);
+        self::assertInstanceOf(Response::class, $responseObj);
     }
 
     public function testExecuteGetManualMapping()
@@ -137,7 +139,7 @@ class RequestTest extends TestCase
         $requestService = new Request($postRequest, $getRequest);
         $responseObj = $requestService->execute($requestInterface, $requestOptions, $header);
 
-        self::assertInstanceOf(ResponseInterface::class, $responseObj);
+        self::assertInstanceOf(Response::class, $responseObj);
     }
 
     public function testExecuteManualMapping()
@@ -164,7 +166,7 @@ class RequestTest extends TestCase
         $requestService = new Request($postRequest, $getRequest);
         $responseObj = $requestService->execute($requestInterface, $requestOptions, $header);
 
-        self::assertInstanceOf(ResponseInterface::class, $responseObj);
+        self::assertInstanceOf(Response::class, $responseObj);
     }
 
     /**
@@ -172,7 +174,7 @@ class RequestTest extends TestCase
      */
     private function getRequestInterfaceMock()
     {
-        $stub = $this->getMock(RequestInterface::class);
+        $stub = $this->getMock(AbstractRequest::class);
 
         return $stub;
     }

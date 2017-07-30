@@ -3,14 +3,14 @@
 namespace HanischIt\KrakenApi\Model\OpenOrders;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RequestInterface;
+use HanischIt\KrakenApi\Model\AbstractRequest;
 
 /**
- * Class OpenOrdersRequest
+ * Class OpenOrdersAbstractRequest
  *
  * @package HanischIt\KrakenApi\Model\OpenOrders
  */
-class OpenOrdersRequest implements RequestInterface
+class OpenOrdersAbstractRequest extends AbstractRequest
 {
     /**
      * @var bool
@@ -22,7 +22,7 @@ class OpenOrdersRequest implements RequestInterface
     private $userref;
 
     /**
-     * OrderBookRequest constructor.
+     * OrderBookAbstractRequest constructor.
      *
      * @param bool $trades
      * @param null $userref
