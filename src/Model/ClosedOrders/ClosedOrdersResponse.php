@@ -2,6 +2,9 @@
 
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
+use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
+use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
+
 /**
  * Class ClosedOrdersResponse
  *
@@ -10,7 +13,7 @@ namespace HanischIt\KrakenApi\Model\ClosedOrders;
 class ClosedOrdersResponse implements ClosedOrdersResponseInterface
 {
     /**
-     * @var ClosedOrderModel[]
+     * @var OrderModel[]
      */
     private $orders;
 
@@ -20,11 +23,11 @@ class ClosedOrdersResponse implements ClosedOrdersResponseInterface
     public function manualMapping($result)
     {
         foreach ($result["closed"] as $txid => $orderData) {
-            $this->orders[] = new ClosedOrderModel(
+            $this->orders[] = new OrderModel(
                 $txid,
                 $orderData["closetm"],
                 $orderData["cost"],
-                new ClosedOrderOrderTypeModel(
+                new OrderTypeModel(
                     $orderData["descr"]["leverage"],
                     $orderData["descr"]["order"],
                     $orderData["descr"]["ordertype"],
@@ -51,7 +54,7 @@ class ClosedOrdersResponse implements ClosedOrdersResponseInterface
     }
 
     /**
-     * @return ClosedOrderModel[]
+     * @return OrderModel[]
      */
     public function getOrders()
     {

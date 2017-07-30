@@ -1,17 +1,17 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\OpenOrders;
+namespace HanischIt\KrakenApi\Model\OrdersInfo;
 
 use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
-
+use HanischIt\KrakenApi\Model\ResponseInterface;
+use Model\OHLCData\OHLCDataModel;
 
 /**
- * Class OpenOrdersResponse
- *
- * @package HanischIt\KrakenApi\Model\OpenOrders
+ * Class OrdersInfoResponse
+ * @package HanischIt\KrakenApi\Model\OrdersInfo
  */
-class OpenOrdersResponse implements OpenOrdersResponseInterface
+class OrdersInfoResponse implements ResponseInterface
 {
     /**
      * @var OrderModel[]
@@ -23,10 +23,10 @@ class OpenOrdersResponse implements OpenOrdersResponseInterface
      */
     public function manualMapping($result)
     {
-        foreach ($result["open"] as $txid => $orderData) {
+        foreach ($result as $txid => $orderData) {
             $this->orders[] = new OrderModel(
                 $txid,
-                null,
+                isset($orderData["closetm"]) ? $orderData["closetm"] : null,
                 $orderData["cost"],
                 new OrderTypeModel(
                     $orderData["descr"]["leverage"],
@@ -43,7 +43,7 @@ class OpenOrdersResponse implements OpenOrdersResponseInterface
                 $orderData["oflags"],
                 $orderData["opentm"],
                 $orderData["price"],
-                null,
+                isset($orderData["reason"]) ? $orderData["reason"] : null,
                 $orderData["refid"],
                 $orderData["starttm"],
                 $orderData["status"],

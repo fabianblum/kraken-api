@@ -8,8 +8,8 @@
 
 namespace src\Model\ClosedOrders;
 
-use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrderModel;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
+use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use PHPUnit\Framework\TestCase;
 
 class ClosedOrderResponseTest extends TestCase
@@ -45,7 +45,7 @@ class ClosedOrderResponseTest extends TestCase
         $closedOrdersResponse->manualMapping($data);
         $responseModels = $closedOrdersResponse->getOrders();
 
-        self::assertContainsOnlyInstancesOf(ClosedOrderModel::class, $responseModels);
+        self::assertContainsOnlyInstancesOf(OrderModel::class, $responseModels);
 
         $i = 0;
         foreach ($data as $orderData) {

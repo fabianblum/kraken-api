@@ -9,6 +9,7 @@ namespace HanischIt\KrakenApi\Service\RequestService;
 
 use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
+use HanischIt\KrakenApi\Exception\ApiException;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
@@ -61,6 +62,7 @@ class Request implements RequestServiceInterface
 
         $responseClass = $request->getResponseClassName();
         $result = json_decode($response->getBody(), true);
+        $this->handleError($result);
         $responseObject = new $responseClass();
         if (isset($result["result"])) {
             if (method_exists($responseObject, "manualMapping")) {
@@ -74,5 +76,16 @@ class Request implements RequestServiceInterface
         }
 
         return $responseObject;
+    }
+
+    /**
+     * @param array $result
+     * @throws ApiException
+     */
+    private function handleError($result)
+    {
+        if (isset($result["error"]) && !empty($result["error"])) {
+            throw new ApiException($result["error"]);
+        }
     }
 }

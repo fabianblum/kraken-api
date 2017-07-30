@@ -18,7 +18,6 @@ use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use HanischIt\KrakenApi\Service\RequestService\PostRequest;
 use HanischIt\KrakenApi\Service\RequestService\Request;
-use Mockery;
 use PHPUnit\Framework\TestCase;
 
 
@@ -37,6 +36,37 @@ class RequestTest extends TestCase
         $version = rand(1, 99999);
         $responseClassName = ServerTimeResponse::class;
         $json = '{ "result":{"unixTime":5949494, "rfc1123": "asdads"} }';
+
+        $requestInterface = $this->getRequestInterfaceMock();
+        $postRequest = $this->getPostRequestMock();
+        $getRequest = $this->getGetRequestMock();
+        $responseInterface = $this->getResponseInterfaceMock();
+        $requestOptions = new RequestOptions($endpoint, $version);
+        $header = new Header($apiKey, $apiSign);
+
+        $responseInterface->expects(self::any())->method('getBody')->will(self::returnValue($json));
+        $requestInterface->expects(self::once())->method('getVisibility')->willReturn(VisibilityEnum::VISIBILITY_PUBLIC);
+        $getRequest->expects(self::once())->method('execute')->with($requestInterface, $requestOptions)->willReturn($responseInterface);
+        $requestInterface->expects(self::once())->method('getResponseClassName')->will(self::returnValue($responseClassName));
+
+        $requestService = new Request($postRequest, $getRequest);
+        $responseObj = $requestService->execute($requestInterface, $requestOptions, $header);
+
+        self::assertInstanceOf(ResponseInterface::class, $responseObj);
+    }
+
+    /**
+     * @expectedException HanischIt\KrakenApi\Exception\ApiException
+     *
+     */
+    public function testExecuteGetError()
+    {
+        $endpoint = uniqid();
+        $apiKey = uniqid();
+        $apiSign = uniqid();
+        $version = rand(1, 99999);
+        $responseClassName = ServerTimeResponse::class;
+        $json = '{ "error":"a error occured"}';
 
         $requestInterface = $this->getRequestInterfaceMock();
         $postRequest = $this->getPostRequestMock();

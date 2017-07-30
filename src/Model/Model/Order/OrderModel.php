@@ -5,14 +5,15 @@
  * @version 1.0
  */
 
-namespace HanischIt\KrakenApi\Model\ClosedOrders;
+namespace HanischIt\KrakenApi\Model\Model\Order;
+
 
 /**
  * Class ClosedOrderModel
  *
  * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-class ClosedOrderModel
+class OrderModel
 {
     /**
      * @var string
@@ -23,7 +24,7 @@ class ClosedOrderModel
      */
     private $cost;
     /**
-     * @var ClosedOrderOrderTypeModel
+     * @var OrderTypeModel
      */
     private $orderDetails;
     /**
@@ -83,7 +84,7 @@ class ClosedOrderModel
      * @param string                    $txid
      * @param string                    $closeTm
      * @param float                     $cost
-     * @param ClosedOrderOrderTypeModel $orderDetails
+     * @param OrderTypeModel $orderDetails
      * @param int                       $expiretm
      * @param float                     $fee
      * @param string                    $misc
@@ -102,7 +103,7 @@ class ClosedOrderModel
         $txid,
         $closeTm,
         $cost,
-        ClosedOrderOrderTypeModel $orderDetails,
+        OrderTypeModel $orderDetails,
         $expiretm,
         $fee,
         $misc,
@@ -154,7 +155,7 @@ class ClosedOrderModel
     }
 
     /**
-     * @return ClosedOrderOrderTypeModel
+     * @return OrderTypeModel
      */
     public function getOrderDetails()
     {

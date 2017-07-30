@@ -1,12 +1,13 @@
 <?php
+
+namespace HanischIt\KrakenApi\Model\Model\Order;
+
 /**
- * @author fabian.hanisch
- * @since  2017-07-19
+ * Class ClosedOrderOrderTypeModel
+ *
+ * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-
-namespace HanischIt\KrakenApi\Model\OpenOrders;
-
-class OpenOrderOrderTypeModel
+class OrderTypeModel
 {
     /**
      * @var string

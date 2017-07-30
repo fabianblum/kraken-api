@@ -8,7 +8,7 @@
 
 namespace src\Model\OpenOrders;
 
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrderModel;
+use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use PHPUnit\Framework\TestCase;
 
@@ -43,7 +43,7 @@ class OpenOrderResponseTest extends TestCase
         $closedOrdersResponse->manualMapping($data);
         $responseModels = $closedOrdersResponse->getOrders();
 
-        self::assertContainsOnlyInstancesOf(OpenOrderModel::class, $responseModels);
+        self::assertContainsOnlyInstancesOf(OrderModel::class, $responseModels);
 
         $i = 0;
         foreach ($data as $orderData) {

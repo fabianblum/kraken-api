@@ -9,6 +9,7 @@
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
 use HanischIt\KrakenApi\Model\ResponseInterface;
+use Model\Model\Order\OrderModel;
 
 
 /**
@@ -24,7 +25,7 @@ interface ClosedOrdersResponseInterface extends ResponseInterface
     public function manualMapping($result);
 
     /**
-     * @return ClosedOrderModel[]
+     * @return OrderModel[]
      */
     public function getOrders();
 }

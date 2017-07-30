@@ -14,17 +14,17 @@ You can use the existing sources but they may will be changed
 - [x] GetAssets
 - [x] GetTradeableAssetPairs
 - [x] GetTickerInformation
-- [ ] GetOHLCData
+- [x] GetOHLCData
 - [x] GetOrderBook
 - [x] GetRecentTrades
 - [x] GetRecentSpreadData
 
 **Private**
 - [x] GetAccountBalance
-- [ ] GetTradeBalance
+- [x] GetTradeBalance
 - [x] GetOpenOrders
 - [x] GetClosedOrders
-- [ ] GetOrders
+- [x] GetOrdersInfo
 - [ ] GetTradesHistory
 - [ ] GetTrades
 - [ ] GetOpenPositions

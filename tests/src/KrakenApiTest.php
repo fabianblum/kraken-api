@@ -14,13 +14,16 @@ use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
+use HanischIt\KrakenApi\Model\OHLCdata\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
+use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
+use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -102,6 +105,27 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
 
         $assetPairs = [uniqid()];
         self::assertInstanceOf(TradableAssetPairsResponse::class, $krakenApi->getTradableAssetPairs('all', $assetPairs));
+    }
+
+    public function testGetOhlcData()
+    {
+        $krakenApi = $this->getKrakenApi(OHLCDataResponse::class);
+
+        self::assertInstanceOf(OHLCDataResponse::class, $krakenApi->getOHLCData(uniqid(), rand(1000, 100000), rand(100000, 1000000)));
+    }
+
+    public function testGetTradeBalance()
+    {
+        $krakenApi = $this->getKrakenApi(TradeBalanceResponse::class);
+
+        self::assertInstanceOf(TradeBalanceResponse::class, $krakenApi->getTradeBalance(uniqid(), uniqid()));
+    }
+
+    public function testGetOrdersInfo()
+    {
+        $krakenApi = $this->getKrakenApi(OrdersInfoResponse::class);
+
+        self::assertInstanceOf(OrdersInfoResponse::class, $krakenApi->getOrdersInfo([uniqid()]));
     }
 
 

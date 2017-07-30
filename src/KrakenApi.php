@@ -19,10 +19,14 @@ use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\Header;
+use HanischIt\KrakenApi\Model\OHLCdata\OHLCDataRequest;
+use HanischIt\KrakenApi\Model\OHLCdata\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
+use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoRequest;
+use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesRequest;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
@@ -34,6 +38,8 @@ use HanischIt\KrakenApi\Model\SpreadData\SpreadDataRequest;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsRequest;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
+use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceRequest;
+use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use HanischIt\KrakenApi\Service\RequestService\Nonce;
 use HanischIt\KrakenApi\Service\RequestService\PostRequest;
@@ -235,6 +241,44 @@ class KrakenApi
         $tradableAssetPairs = new TradableAssetPairsRequest($info, $assetPairs);
 
         return $this->doRequest($tradableAssetPairs);
+    }
+
+    /**
+     * @param string $assetPair
+     * @param null|int $interval
+     * @param null|int $since
+     * @return ResponseInterface|OHLCDataResponse
+     */
+    public function getOHLCData($assetPair, $interval = null, $since = null)
+    {
+        $ohlcDataRequest = new OHLCDataRequest($assetPair, $interval, $since);
+
+        return $this->doRequest($ohlcDataRequest);
+    }
+
+    /**
+     * @param array|null $txids
+     * @param bool $trades
+     * @param null|string $userref
+     * @return ResponseInterface|OrdersInfoResponse
+     */
+    public function getOrdersInfo(array $txids, $trades = false, $userref = null)
+    {
+        $ordersInfoRequest = new OrdersInfoRequest($txids, $trades, $userref);
+
+        return $this->doRequest($ordersInfoRequest);
+    }
+
+    /**
+     * @param string|null $aclass
+     * @param string|null $asset
+     * @return ResponseInterface|TradeBalanceResponse
+     */
+    public function getTradeBalance($aclass = null, $asset = null)
+    {
+        $tradeBalanceRequest = new TradeBalanceRequest($aclass, $asset);
+
+        return $this->doRequest($tradeBalanceRequest);
     }
 
     /**
