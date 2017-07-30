@@ -3,8 +3,8 @@
 namespace src\Model\OHLCData;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OHLCdata\OHLCDataRequest;
-use HanischIt\KrakenApi\Model\OHLCdata\OHLCDataResponse;
+use HanischIt\KrakenApi\Model\OHLCData\OHLCDataRequest;
+use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use PHPUnit\Framework\TestCase;
 
 class OHLCDataRequestTest extends TestCase

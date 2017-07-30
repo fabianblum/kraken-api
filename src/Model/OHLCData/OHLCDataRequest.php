@@ -1,6 +1,6 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\OHLCdata;
+namespace HanischIt\KrakenApi\Model\OHLCData;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
 use HanischIt\KrakenApi\Model\RequestInterface;
