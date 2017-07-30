@@ -14,7 +14,7 @@ use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
-use HanischIt\KrakenApi\Model\OHLCdata\OHLCDataResponse;
+use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
