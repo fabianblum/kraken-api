@@ -3,7 +3,6 @@
 namespace HanischIt\KrakenApi\Model\TradeBalance;
 
 use HanischIt\KrakenApi\Model\ResponseInterface;
-use Model\OHLCData\OHLCDataModel;
 
 /**
  * Class TradeBalanceResponse

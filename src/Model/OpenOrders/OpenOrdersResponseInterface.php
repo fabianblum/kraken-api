@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fabia
- * Date: 27.07.2017
- * Time: 00:16
- */
 
 namespace HanischIt\KrakenApi\Model\OpenOrders;
 
+use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 
 
@@ -24,7 +19,7 @@ interface OpenOrdersResponseInterface extends ResponseInterface
     public function manualMapping($result);
 
     /**
-     * @return OpenOrderModel[]
+     * @return OrderModel[]
      */
     public function getOrders();
 }

@@ -8,8 +8,8 @@
 
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
+use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\ResponseInterface;
-use Model\Model\Order\OrderModel;
 
 
 /**

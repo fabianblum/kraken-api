@@ -5,7 +5,6 @@ namespace HanischIt\KrakenApi\Model\OrdersInfo;
 use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
 use HanischIt\KrakenApi\Model\ResponseInterface;
-use Model\OHLCData\OHLCDataModel;
 
 /**
  * Class OrdersInfoResponse
