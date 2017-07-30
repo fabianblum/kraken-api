@@ -9,7 +9,7 @@
 namespace src\Model\ClosedOrders;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersAbstractRequest;
+use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class OpenOrdersRequestTest extends TestCase
 {
     public function testRequest()
     {
-        $assetRequest = new OpenOrdersAbstractRequest();
+        $assetRequest = new OpenOrdersRequest();
         self::assertEquals($assetRequest->getMethod(), 'OpenOrders');
         self::assertEquals($assetRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($assetRequest->getRequestData(), ["trades" => false]);
@@ -34,7 +34,7 @@ class OpenOrdersRequestTest extends TestCase
         $arr["userref"] = $userref;
 
 
-        $assetRequest = new OpenOrdersAbstractRequest($trades, $userref);
+        $assetRequest = new OpenOrdersRequest($trades, $userref);
         self::assertEquals($assetRequest->getMethod(), 'OpenOrders');
         self::assertEquals($assetRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($assetRequest->getRequestData(), $arr);

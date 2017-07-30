@@ -2,14 +2,14 @@
 
 namespace HanischIt\KrakenApi\Model\OHLCData;
 
-use HanischIt\KrakenApi\Model\Response;
+use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
  * Class ServerTimeResponse
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-class OHLCDataResponse extends Response
+class OHLCDataResponse implements ResponseInterface
 {
 
     /**

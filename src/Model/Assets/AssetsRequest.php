@@ -1,17 +1,16 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\ServerTime;
+namespace HanischIt\KrakenApi\Model\Assets;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class ServerTimeAbstractRequest
+ * Class AssetsRequest
  *
- * @package HanischIt\KrakenApi\Model\ServerTime
+ * @package HanischIt\KrakenApi\Model\Assets
  */
-class ServerTimeAbstractRequest extends AbstractRequest
+class AssetsRequest implements RequestInterface
 {
 
     /**
@@ -21,7 +20,7 @@ class ServerTimeAbstractRequest extends AbstractRequest
      */
     public function getMethod()
     {
-        return 'Time';
+        return 'Assets';
     }
 
     /**
@@ -45,6 +44,6 @@ class ServerTimeAbstractRequest extends AbstractRequest
      */
     public function getResponseClassName()
     {
-        return ServerTimeResponse::class;
+        return AssetsResponse::class;
     }
 }

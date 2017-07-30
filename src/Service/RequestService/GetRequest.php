@@ -9,7 +9,6 @@ namespace HanischIt\KrakenApi\Service\RequestService;
 
 use HanischIt\KrakenApi\Enum\RequestMethodEnum;
 use HanischIt\KrakenApi\External\HttpClient;
-use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
@@ -31,7 +30,7 @@ class GetRequest
     private $requestHeader;
 
     /**
-     * AbstractRequest constructor.
+     * Request constructor.
      *
      * @param HttpClient    $client
      * @param RequestHeader $requestHeader
@@ -43,12 +42,12 @@ class GetRequest
     }
 
     /**
-     * @param AbstractRequest $request
+     * @param RequestInterface $request
      * @param RequestOptions   $requestOptions
      *
      * @return ResponseInterface
      */
-    public function execute(AbstractRequest $request, RequestOptions $requestOptions)
+    public function execute(RequestInterface $request, RequestOptions $requestOptions)
     {
         $path = $requestOptions->getEndpoint() . "/" . $requestOptions->getVersion() . "/public/" . $request->getMethod();
 

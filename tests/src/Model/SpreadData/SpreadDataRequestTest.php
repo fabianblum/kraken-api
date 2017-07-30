@@ -3,7 +3,7 @@
 namespace src\Model\SpreadData;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataAbstractRequest;
+use HanischIt\KrakenApi\Model\SpreadData\SpreadDataRequest;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use PHPUnit\Framework\TestCase;
 
@@ -18,7 +18,7 @@ class SpreadDataRequestTest extends TestCase
         $arr["pair"] = $assetPair;
         $arr["since"] = $since;
 
-        $spreadDataRequest = new SpreadDataAbstractRequest($assetPair, $since);
+        $spreadDataRequest = new SpreadDataRequest($assetPair, $since);
         self::assertEquals($spreadDataRequest->getMethod(), 'Spread');
         self::assertEquals($spreadDataRequest->getVisibility(), VisibilityEnum::VISIBILITY_PUBLIC);
         self::assertEquals($spreadDataRequest->getRequestData(), $arr);

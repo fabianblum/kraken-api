@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\OrderBook;
 
-use HanischIt\KrakenApi\Model\Response;
-
 /**
  * Class OrderBookResponse
  *
  * @package HanischIt\KrakenApi\Model\OrderBook
  */
-class OrderBookResponse extends Response
+class OrderBookResponse implements OrderBookResponseInterface
 {
     /**
      * @var string

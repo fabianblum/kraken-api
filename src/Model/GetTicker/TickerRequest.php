@@ -3,14 +3,14 @@
 namespace HanischIt\KrakenApi\Model\GetTicker;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AbstractRequest;
+use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
  * Class GetServerTime
  *
  * @package HanischIt\KrakenApi\Model\GetTicker
  */
-class TickerAbstractRequest extends AbstractRequest
+class TickerRequest implements RequestInterface
 {
 
     /**

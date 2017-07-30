@@ -4,13 +4,13 @@ namespace HanischIt\KrakenApi\Model\OrdersInfo;
 
 use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
-use HanischIt\KrakenApi\Model\Response;
+use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
  * Class OrdersInfoResponse
  * @package HanischIt\KrakenApi\Model\OrdersInfo
  */
-class OrdersInfoResponse extends Response
+class OrdersInfoResponse implements ResponseInterface
 {
     /**
      * @var OrderModel[]

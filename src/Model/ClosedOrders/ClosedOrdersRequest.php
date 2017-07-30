@@ -3,14 +3,14 @@
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AbstractRequest;
+use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class ClosedOrdersAbstractRequest
+ * Class ClosedOrdersRequest
  *
  * @package HanischIt\KrakenApi\Model\ClosedOrders
  */
-class ClosedOrdersAbstractRequest extends AbstractRequest
+class ClosedOrdersRequest implements RequestInterface
 {
     /**
      * @var bool
@@ -38,7 +38,7 @@ class ClosedOrdersAbstractRequest extends AbstractRequest
     private $closetime;
 
     /**
-     * OrderBookAbstractRequest constructor.
+     * OrderBookRequest constructor.
      *
      * @param bool        $trades
      * @param null|string $userref

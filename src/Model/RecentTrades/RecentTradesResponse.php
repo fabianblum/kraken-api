@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\RecentTrades;
 
-use HanischIt\KrakenApi\Model\Response;
-
 /**
  * Class RecentTradesResponse
  *
  * @package HanischIt\KrakenApi\Model\AccountBalance
  */
-class RecentTradesResponse extends Response
+class RecentTradesResponse implements RecentTradesResponseInterface
 {
     /**
      * @var RecentTradeModel[][]

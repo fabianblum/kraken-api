@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\Assets;
 
-use HanischIt\KrakenApi\Model\Response;
-
 /**
  * Class AssetsResponse
  *
  * @package HanischIt\KrakenApi\Model\Assets
  */
-class AssetsResponse extends Response
+class AssetsResponse implements AssetsResponseInterface
 {
     /**
      * @var AssetModel[]

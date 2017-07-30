@@ -3,14 +3,14 @@
 namespace HanischIt\KrakenApi\Model\OHLCData;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AbstractRequest;
+use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class ServerTimeAbstractRequest
+ * Class ServerTimeRequest
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-class OHLCDataAbstractRequest extends AbstractRequest
+class OHLCDataRequest implements RequestInterface
 {
 
     /**
@@ -29,7 +29,7 @@ class OHLCDataAbstractRequest extends AbstractRequest
     private $since;
 
     /**
-     * OHLCDataAbstractRequest constructor.
+     * OHLCDataRequest constructor.
      * @param string $pair
      * @param int $interval
      * @param int $since

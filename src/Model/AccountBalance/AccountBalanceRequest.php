@@ -1,16 +1,16 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\Assets;
+namespace HanischIt\KrakenApi\Model\AccountBalance;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AbstractRequest;
+use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class AssetsAbstractRequest
+ * Class ServerTimeRequest
  *
- * @package HanischIt\KrakenApi\Model\Assets
+ * @package HanischIt\Model\AccountBalance
  */
-class AssetsAbstractRequest extends AbstractRequest
+class AccountBalanceRequest implements RequestInterface
 {
 
     /**
@@ -20,7 +20,7 @@ class AssetsAbstractRequest extends AbstractRequest
      */
     public function getMethod()
     {
-        return 'Assets';
+        return 'Balance';
     }
 
     /**
@@ -28,7 +28,7 @@ class AssetsAbstractRequest extends AbstractRequest
      */
     public function getVisibility()
     {
-        return VisibilityEnum::VISIBILITY_PUBLIC;
+        return VisibilityEnum::VISIBILITY_PRIVATE;
     }
 
     /**
@@ -44,6 +44,6 @@ class AssetsAbstractRequest extends AbstractRequest
      */
     public function getResponseClassName()
     {
-        return AssetsResponse::class;
+        return AccountBalanceResponse::class;
     }
 }

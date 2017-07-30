@@ -2,14 +2,12 @@
 
 namespace HanischIt\KrakenApi\Model\ServerTime;
 
-use HanischIt\KrakenApi\Model\Response;
-
 /**
  * Class ServerTimeResponse
  *
  * @package HanischIt\KrakenApi\Model\ServerTime
  */
-class ServerTimeResponse extends Response
+class ServerTimeResponse implements ServerTimeResponseInterface
 {
 
     /**
@@ -56,10 +54,5 @@ class ServerTimeResponse extends Response
     public function setRfc1123($rfc1123)
     {
         $this->rfc1123 = $rfc1123;
-    }
-
-    public function manualMapping($data)
-    {
-        // TODO: Implement manualMapping() method.
     }
 }

@@ -7,7 +7,6 @@
 
 namespace HanischIt\KrakenApi\Service\RequestService;
 
-use HanischIt\KrakenApi\Model\AbstractRequest;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
@@ -19,5 +18,5 @@ use HanischIt\KrakenApi\Model\RequestOptions;
  */
 interface RequestServiceInterface
 {
-    public function execute(AbstractRequest $request, RequestOptions $requestOptions, Header $header);
+    public function execute(RequestInterface $request, RequestOptions $requestOptions, Header $header);
 }

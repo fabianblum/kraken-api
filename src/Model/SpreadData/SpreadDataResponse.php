@@ -2,13 +2,11 @@
 
 namespace HanischIt\KrakenApi\Model\SpreadData;
 
-use HanischIt\KrakenApi\Model\Response;
-
 /**
  * Class SpreadDataResponse
  * @package HanischIt\KrakenApi\Model\SpreadData
  */
-class SpreadDataResponse extends Response
+class SpreadDataResponse implements SpreadDataResponseInterface
 {
     /**
      * @var int

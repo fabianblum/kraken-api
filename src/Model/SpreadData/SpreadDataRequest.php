@@ -1,38 +1,36 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\RecentTrades;
+namespace HanischIt\KrakenApi\Model\SpreadData;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AbstractRequest;
+use HanischIt\KrakenApi\Model\RequestInterface;
 
 /**
- * Class RecentTradesAbstractRequest
+ * Class SpreadDataRequest
  *
- * @package HanischIt\Model\RecentTrades
+ * @package HanischIt\KrakenApi\Model\SpreadData
  */
-class RecentTradesAbstractRequest extends AbstractRequest
+class SpreadDataRequest implements RequestInterface
 {
     /**
-     * @var string
+     * @var
      */
     private $assetPair;
     /**
-     * @var string
+     * @var null
      */
     private $since;
 
     /**
-     * RecentTradesAbstractRequest constructor.
-     *
-     * @param string $assetPair
-     * @param string $since
+     * OrderBookRequest constructor.
+     * @param $assetPair
+     * @param null|mixed $since
      */
-    public function __construct($assetPair, $since)
+    public function __construct($assetPair, $since = null)
     {
         $this->assetPair = $assetPair;
         $this->since = $since;
     }
-
 
     /**
      * Returns the api request name
@@ -41,7 +39,7 @@ class RecentTradesAbstractRequest extends AbstractRequest
      */
     public function getMethod()
     {
-        return 'Trades';
+        return 'Spread';
     }
 
     /**
@@ -57,13 +55,12 @@ class RecentTradesAbstractRequest extends AbstractRequest
      */
     public function getRequestData()
     {
-        $ret = [];
-        $ret['pair'] = $this->assetPair;
+        $arr = [];
+        $arr["pair"] = $this->assetPair;
         if ($this->since) {
-            $ret['since'] = $this->since;
+            $arr["since"] = $this->since;
         }
-
-        return $ret;
+        return $arr;
     }
 
     /**
@@ -71,6 +68,6 @@ class RecentTradesAbstractRequest extends AbstractRequest
      */
     public function getResponseClassName()
     {
-        return RecentTradesResponse::class;
+        return SpreadDataResponse::class;
     }
 }

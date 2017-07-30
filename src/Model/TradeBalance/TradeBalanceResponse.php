@@ -2,13 +2,13 @@
 
 namespace HanischIt\KrakenApi\Model\TradeBalance;
 
-use HanischIt\KrakenApi\Model\Response;
+use HanischIt\KrakenApi\Model\ResponseInterface;
 
 /**
  * Class TradeBalanceResponse
  * @package HanischIt\KrakenApi\Model\TradeBalance
  */
-class TradeBalanceResponse extends Response
+class TradeBalanceResponse implements ResponseInterface
 {
     /**
      * @var float

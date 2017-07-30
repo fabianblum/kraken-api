@@ -3,7 +3,7 @@
 namespace src\Model\OrderBook;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OrderBook\OrderBookAbstractRequest;
+use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use PHPUnit\Framework\TestCase;
 
@@ -18,7 +18,7 @@ class OrderBookRequestTest extends TestCase
         $arr["pair"] = $assetPair;
         $arr["count"] = $count;
 
-        $orderBookRequest = new OrderBookAbstractRequest($assetPair, $count);
+        $orderBookRequest = new OrderBookRequest($assetPair, $count);
         self::assertEquals($orderBookRequest->getMethod(), 'Depth');
         self::assertEquals($orderBookRequest->getVisibility(), VisibilityEnum::VISIBILITY_PUBLIC);
         self::assertEquals($orderBookRequest->getRequestData(), $arr);
