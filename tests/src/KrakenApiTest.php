@@ -29,6 +29,7 @@ use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
 use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
 use HanischIt\KrakenApi\Model\Trades\TradesResponse;
 use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
+use HanischIt\KrakenApi\Model\TradeVolume\TradeVolumeResponse;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -168,6 +169,13 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(QueryLedgersResponse::class);
 
         self::assertInstanceOf(QueryLedgersResponse::class, $krakenApi->getLedgers(uniqid()));
+    }
+
+    public function testGetTradeVolume()
+    {
+        $krakenApi = $this->getKrakenApi(TradeVolumeResponse::class);
+
+        self::assertInstanceOf(TradeVolumeResponse::class, $krakenApi->getTradeVolume());
     }
 
 

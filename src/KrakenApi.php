@@ -50,6 +50,8 @@ use HanischIt\KrakenApi\Model\Trades\TradesRequest;
 use HanischIt\KrakenApi\Model\Trades\TradesResponse;
 use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryRequest;
 use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
+use HanischIt\KrakenApi\Model\TradeVolume\TradeVolumeRequest;
+use HanischIt\KrakenApi\Model\TradeVolume\TradeVolumeResponse;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use HanischIt\KrakenApi\Service\RequestService\Nonce;
 use HanischIt\KrakenApi\Service\RequestService\PostRequest;
@@ -365,6 +367,19 @@ class KrakenApi
         $ledgersInfoRequest = new QueryLedgersRequest($id);
 
         return $this->doRequest($ledgersInfoRequest);
+
+    }
+
+    /**
+     * @param null|string $pair
+     * @param null|bool $feeInfo
+     * @return TradeVolumeResponse|ResponseInterface
+     */
+    public function getTradeVolume($pair = null, $feeInfo = null)
+    {
+        $tradeVolumeRequest = new TradeVolumeRequest($pair, $feeInfo);
+
+        return $this->doRequest($tradeVolumeRequest);
     }
 
     /**
