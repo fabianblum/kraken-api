@@ -12,6 +12,7 @@ use HanischIt\KrakenApi\KrakenApi;
 use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
+use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderResponse;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
@@ -142,6 +143,13 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(TradesResponse::class);
 
         self::assertInstanceOf(TradesResponse::class, $krakenApi->getTrades(uniqid()));
+    }
+
+    public function testCancelOpenOrder()
+    {
+        $krakenApi = $this->getKrakenApi(CancelOpenOrderResponse::class);
+
+        self::assertInstanceOf(CancelOpenOrderResponse::class, $krakenApi->cancelOrder(uniqid()));
     }
 
 

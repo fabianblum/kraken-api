@@ -32,5 +32,5 @@ You can use the existing sources but they may will be changed
 - [ ] GetLedgers
 - [ ] GetTradeVolume
 - [x] AddOrder
-- [ ] CancelOpenOrder
+- [x] CancelOpenOrder
 

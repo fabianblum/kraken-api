@@ -14,6 +14,8 @@ use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
 use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
 use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
+use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderRequest;
+use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderResponse;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersRequest;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
@@ -298,6 +300,17 @@ class KrakenApi
         $tradesHistoryRequest = new TradesRequest($txid, $trades);
 
         return $this->doRequest($tradesHistoryRequest);
+    }
+
+    /**
+     * @param string $txid
+     * @return ResponseInterface|CancelOpenOrderResponse
+     */
+    public function cancelOrder($txid)
+    {
+        $cancelOrderRequest = new CancelOpenOrderRequest($txid);
+
+        return $this->doRequest($cancelOrderRequest);
     }
 
     /**
