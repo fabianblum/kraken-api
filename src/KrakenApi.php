@@ -27,6 +27,8 @@ use HanischIt\KrakenApi\Model\OHLCData\OHLCDataRequest;
 use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
+use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsRequest;
+use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoRequest;
@@ -380,6 +382,18 @@ class KrakenApi
         $tradeVolumeRequest = new TradeVolumeRequest($pair, $feeInfo);
 
         return $this->doRequest($tradeVolumeRequest);
+    }
+
+    /**
+     * @param string $txid
+     * @param bool $docalcs
+     * @return ResponseInterface|OpenPositionsResponse
+     */
+    public function getOpenPositions($txid, $docalcs = false)
+    {
+        $openPositionsRequest = new OpenPositionsRequest($txid, $docalcs);
+
+        return $this->doRequest($openPositionsRequest);
     }
 
     /**

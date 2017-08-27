@@ -27,10 +27,10 @@ You can use the existing sources but they may will be changed
 - [x] GetOrdersInfo
 - [x] GetTradesHistory
 - [x] GetTrades
-- [ ] GetOpenPositions
+- [x] GetOpenPositions
 - [x] GetLedgersInfo
 - [x] GetLedgers
-- [ ] GetTradeVolume
+- [x] GetTradeVolume
 - [x] AddOrder
 - [x] CancelOpenOrder
 

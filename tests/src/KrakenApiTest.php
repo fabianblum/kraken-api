@@ -18,6 +18,7 @@ use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\LedgersInfo\LedgersInfoResponse;
 use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
+use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
 use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersResponse;
@@ -176,6 +177,13 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(TradeVolumeResponse::class);
 
         self::assertInstanceOf(TradeVolumeResponse::class, $krakenApi->getTradeVolume());
+    }
+
+    public function testGetOpenPositions()
+    {
+        $krakenApi = $this->getKrakenApi(OpenPositionsResponse::class);
+
+        self::assertInstanceOf(OpenPositionsResponse::class, $krakenApi->getOpenPositions(uniqid()));
     }
 
 
