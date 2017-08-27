@@ -31,6 +31,8 @@ use HanischIt\KrakenApi\Model\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoRequest;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
+use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersRequest;
+use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersResponse;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesRequest;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
@@ -350,6 +352,17 @@ class KrakenApi
             $start,
             $end,
             $ofs);
+
+        return $this->doRequest($ledgersInfoRequest);
+    }
+
+    /**
+     * @param string $id
+     * @return ResponseInterface|QueryLedgersResponse
+     */
+    public function getLedgers($id)
+    {
+        $ledgersInfoRequest = new QueryLedgersRequest($id);
 
         return $this->doRequest($ledgersInfoRequest);
     }

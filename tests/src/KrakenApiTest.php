@@ -20,6 +20,7 @@ use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
+use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersResponse;
 use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
@@ -108,14 +109,16 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(TradableAssetPairsResponse::class);
 
         $assetPairs = [uniqid()];
-        self::assertInstanceOf(TradableAssetPairsResponse::class, $krakenApi->getTradableAssetPairs('all', $assetPairs));
+        self::assertInstanceOf(TradableAssetPairsResponse::class,
+            $krakenApi->getTradableAssetPairs('all', $assetPairs));
     }
 
     public function testGetOhlcData()
     {
         $krakenApi = $this->getKrakenApi(OHLCDataResponse::class);
 
-        self::assertInstanceOf(OHLCDataResponse::class, $krakenApi->getOHLCData(uniqid(), rand(1000, 100000), rand(100000, 1000000)));
+        self::assertInstanceOf(OHLCDataResponse::class,
+            $krakenApi->getOHLCData(uniqid(), rand(1000, 100000), rand(100000, 1000000)));
     }
 
     public function testGetTradeBalance()
@@ -158,6 +161,13 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(LedgersInfoResponse::class);
 
         self::assertInstanceOf(LedgersInfoResponse::class, $krakenApi->getLedgersInfo());
+    }
+
+    public function testGetLedgers()
+    {
+        $krakenApi = $this->getKrakenApi(QueryLedgersResponse::class);
+
+        self::assertInstanceOf(QueryLedgersResponse::class, $krakenApi->getLedgers(uniqid()));
     }
 
 

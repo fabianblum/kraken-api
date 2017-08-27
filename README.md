@@ -28,8 +28,8 @@ You can use the existing sources but they may will be changed
 - [x] GetTradesHistory
 - [x] GetTrades
 - [ ] GetOpenPositions
-- [ ] GetLedgersInfo
-- [ ] GetLedgers
+- [x] GetLedgersInfo
+- [x] GetLedgers
 - [ ] GetTradeVolume
 - [x] AddOrder
 - [x] CancelOpenOrder
