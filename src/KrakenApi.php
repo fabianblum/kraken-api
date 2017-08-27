@@ -40,6 +40,8 @@ use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsRequest;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
 use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceRequest;
 use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
+use HanischIt\KrakenApi\Model\Trades\TradesRequest;
+use HanischIt\KrakenApi\Model\Trades\TradesResponse;
 use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryRequest;
 use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
@@ -282,6 +284,18 @@ class KrakenApi
     public function getTradesHistory($type = 'all', $trades = false, $start = null, $end = null, $ofs = null)
     {
         $tradesHistoryRequest = new TradesHistoryRequest($type, $trades, $start, $end, $ofs);
+
+        return $this->doRequest($tradesHistoryRequest);
+    }
+
+    /**
+     * @param string $txid
+     * @param bool $trades
+     * @return ResponseInterface|TradesResponse
+     */
+    public function getTrades($txid, $trades = false)
+    {
+        $tradesHistoryRequest = new TradesRequest($txid, $trades);
 
         return $this->doRequest($tradesHistoryRequest);
     }
