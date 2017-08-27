@@ -24,7 +24,7 @@ class OrderBookRequest implements RequestInterface
     /**
      * OrderBookRequest constructor.
      * @param $assetPair
-     * @param null $count
+     * @param null|int $count
      */
     public function __construct($assetPair, $count = null)
     {

@@ -24,6 +24,7 @@ use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
 use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
 use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
+use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -126,6 +127,13 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(OrdersInfoResponse::class);
 
         self::assertInstanceOf(OrdersInfoResponse::class, $krakenApi->getOrdersInfo([uniqid()]));
+    }
+
+    public function testGetTradesHistory()
+    {
+        $krakenApi = $this->getKrakenApi(TradesHistoryResponse::class);
+
+        self::assertInstanceOf(TradesHistoryResponse::class, $krakenApi->getTradesHistory(uniqid()));
     }
 
 

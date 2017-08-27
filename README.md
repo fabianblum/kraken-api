@@ -25,7 +25,7 @@ You can use the existing sources but they may will be changed
 - [x] GetOpenOrders
 - [x] GetClosedOrders
 - [x] GetOrdersInfo
-- [ ] GetTradesHistory
+- [x] GetTradesHistory
 - [ ] GetTrades
 - [ ] GetOpenPositions
 - [ ] GetLedgersInfo
