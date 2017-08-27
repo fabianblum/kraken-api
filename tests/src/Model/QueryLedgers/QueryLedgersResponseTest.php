@@ -31,6 +31,7 @@ class QueryLedgersResponseTest extends TestCase
             self::assertEquals($data[$key]["refid"], $ledgerInfo->getRefid());
             self::assertEquals($data[$key]["time"], $ledgerInfo->getTime());
             self::assertEquals($data[$key]["type"], $ledgerInfo->getType());
+            self::assertEquals($data[$key]["aclass"], $ledgerInfo->getAclass());
             self::assertEquals($data[$key]["asset"], $ledgerInfo->getAsset());
             self::assertEquals($data[$key]["amount"], $ledgerInfo->getAmount());
             self::assertEquals($data[$key]["fee"], $ledgerInfo->getFee());
