@@ -8,7 +8,7 @@
 
 namespace src\Model\OpenOrders;
 
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use PHPUnit\Framework\TestCase;
 

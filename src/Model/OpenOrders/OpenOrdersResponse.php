@@ -2,8 +2,8 @@
 
 namespace HanischIt\KrakenApi\Model\OpenOrders;
 
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
-use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderTypeModel;
 
 
 /**
@@ -14,7 +14,7 @@ use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
 class OpenOrdersResponse implements OpenOrdersResponseInterface
 {
     /**
-     * @var OrderModel[]
+     * @var \HanischIt\KrakenApi\Calls\Shared\Model\OrderModel[]
      */
     private $orders;
 
@@ -55,7 +55,7 @@ class OpenOrdersResponse implements OpenOrdersResponseInterface
     }
 
     /**
-     * @return OrderModel[]
+     * @return \HanischIt\KrakenApi\Calls\Shared\Model\OrderModel[]
      */
     public function getOrders()
     {

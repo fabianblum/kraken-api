@@ -2,7 +2,7 @@
 
 namespace src\Model\OrdersInfo;
 
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
 use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
 use PHPUnit\Framework\TestCase;
 

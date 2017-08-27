@@ -1,11 +1,10 @@
 <?php
 
-namespace HanischIt\KrakenApi\Model\Model\Order;
+namespace HanischIt\KrakenApi\Calls\Shared\Model;
 
 /**
- * Class ClosedOrderOrderTypeModel
- *
- * @package HanischIt\KrakenApi\Model\ClosedOrders
+ * Class OrderTypeModel
+ * @package HanischIt\KrakenApi\Calls\Shared\Model
  */
 class OrderTypeModel
 {
@@ -45,8 +44,8 @@ class OrderTypeModel
      * @param string $order
      * @param string $ordertype
      * @param string $pair
-     * @param float  $price
-     * @param float  $price2
+     * @param float $price
+     * @param float $price2
      * @param string $type
      */
     public function __construct($leverage, $order, $ordertype, $pair, $price, $price2, $type)

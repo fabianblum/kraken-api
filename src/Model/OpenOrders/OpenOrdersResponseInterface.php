@@ -2,7 +2,7 @@
 
 namespace HanischIt\KrakenApi\Model\OpenOrders;
 
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 
 

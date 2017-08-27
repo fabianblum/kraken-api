@@ -8,8 +8,8 @@
 
 namespace src\Model\ClosedOrders;
 
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
 use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
 use PHPUnit\Framework\TestCase;
 
 class ClosedOrderResponseTest extends TestCase

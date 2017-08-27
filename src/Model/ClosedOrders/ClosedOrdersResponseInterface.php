@@ -8,7 +8,7 @@
 
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
 use HanischIt\KrakenApi\Model\ResponseInterface;
 
 

@@ -5,13 +5,11 @@
  * @version 1.0
  */
 
-namespace HanischIt\KrakenApi\Model\Model\Order;
-
+namespace HanischIt\KrakenApi\Calls\Shared\Model;
 
 /**
- * Class ClosedOrderModel
- *
- * @package HanischIt\KrakenApi\Model\ClosedOrders
+ * Class OrderModel
+ * @package HanischIt\KrakenApi\Calls\Shared\Model
  */
 class OrderModel
 {
@@ -81,23 +79,23 @@ class OrderModel
     /**
      * OpenOrderModel constructor.
      *
-     * @param string                    $txid
-     * @param string                    $closeTm
-     * @param float                     $cost
+     * @param string $txid
+     * @param string $closeTm
+     * @param float $cost
      * @param OrderTypeModel $orderDetails
-     * @param int                       $expiretm
-     * @param float                     $fee
-     * @param string                    $misc
-     * @param string                    $oflags
-     * @param int                       $opentm
-     * @param float                     $price
-     * @param string                    $reason
-     * @param string                    $refid
-     * @param int                       $starttm
-     * @param string                    $status
-     * @param string                    $userref
-     * @param float                     $vol
-     * @param float                     $vol_exec
+     * @param int $expiretm
+     * @param float $fee
+     * @param string $misc
+     * @param string $oflags
+     * @param int $opentm
+     * @param float $price
+     * @param string $reason
+     * @param string $refid
+     * @param int $starttm
+     * @param string $status
+     * @param string $userref
+     * @param float $vol
+     * @param float $vol_exec
      */
     public function __construct(
         $txid,

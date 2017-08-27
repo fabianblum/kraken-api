@@ -2,8 +2,8 @@
 
 namespace HanischIt\KrakenApi\Model\ClosedOrders;
 
-use HanischIt\KrakenApi\Model\Model\Order\OrderModel;
-use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
+use HanischIt\KrakenApi\Calls\Shared\Model\OrderTypeModel;
 
 /**
  * Class ClosedOrdersResponse
@@ -13,7 +13,7 @@ use HanischIt\KrakenApi\Model\Model\Order\OrderTypeModel;
 class ClosedOrdersResponse implements ClosedOrdersResponseInterface
 {
     /**
-     * @var OrderModel[]
+     * @var \HanischIt\KrakenApi\Calls\Shared\Model\OrderModel[]
      */
     private $orders;
 
@@ -54,7 +54,7 @@ class ClosedOrdersResponse implements ClosedOrdersResponseInterface
     }
 
     /**
-     * @return OrderModel[]
+     * @return \HanischIt\KrakenApi\Calls\Shared\Model\OrderModel[]
      */
     public function getOrders()
     {
