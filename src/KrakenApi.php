@@ -21,6 +21,8 @@ use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
 use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Model\Header;
+use HanischIt\KrakenApi\Model\LedgersInfo\LedgersInfoRequest;
+use HanischIt\KrakenApi\Model\LedgersInfo\LedgersInfoResponse;
 use HanischIt\KrakenApi\Model\OHLCData\OHLCDataRequest;
 use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
@@ -202,8 +204,7 @@ class KrakenApi
         $end = null,
         $ofs = null,
         $closetime = null
-    )
-    {
+    ) {
         $orderBookRequest = new ClosedOrdersRequest($trades, $userref, $start, $end, $ofs, $closetime);
 
         return $this->doRequest($orderBookRequest);
@@ -323,6 +324,34 @@ class KrakenApi
         $tradeBalanceRequest = new TradeBalanceRequest($aclass, $asset);
 
         return $this->doRequest($tradeBalanceRequest);
+    }
+
+    /**
+     * @param string $aclass
+     * @param string $asset
+     * @param string $type
+     * @param null|string $start
+     * @param null|string $end
+     * @param null|string $ofs
+     * @return ResponseInterface|LedgersInfoResponse
+     */
+    public function getLedgersInfo(
+        $aclass = 'currency',
+        $asset = 'all',
+        $type = 'all',
+        $start = null,
+        $end = null,
+        $ofs = null
+    ) {
+        $ledgersInfoRequest = new LedgersInfoRequest(
+            $aclass,
+            $asset,
+            $type,
+            $start,
+            $end,
+            $ofs);
+
+        return $this->doRequest($ledgersInfoRequest);
     }
 
     /**
