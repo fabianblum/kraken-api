@@ -50,5 +50,13 @@ class LedgersInfoResponse implements ResponseInterface
         return $this->ledgerInfos;
     }
 
+    /**
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
 
 }

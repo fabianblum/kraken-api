@@ -66,7 +66,7 @@ class RequestTest extends TestCase
         $apiSign = uniqid();
         $version = rand(1, 99999);
         $responseClassName = ServerTimeResponse::class;
-        $json = '{ "error":"a error occured"}';
+        $json = '{ "error": ["a error occured"]}';
 
         $requestInterface = $this->getRequestInterfaceMock();
         $postRequest = $this->getPostRequestMock();
