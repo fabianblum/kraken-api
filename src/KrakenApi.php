@@ -21,6 +21,7 @@ use HanischIt\KrakenApi\Call\OHLCData\OHLCDataRequest;
 use HanischIt\KrakenApi\Call\OpenOrders\OpenOrdersRequest;
 use HanischIt\KrakenApi\Call\OpenPositions\OpenPositionsRequest;
 use HanischIt\KrakenApi\Call\OpenPositions\OpenPositionsResponse;
+use HanischIt\KrakenApi\Call\OrderBook\Model\OrderBookResponse;
 use HanischIt\KrakenApi\Call\OrderBook\OrderBookRequest;
 use HanischIt\KrakenApi\Call\OrdersInfo\OrdersInfoRequest;
 use HanischIt\KrakenApi\Call\OrdersInfo\OrdersInfoResponse;
@@ -171,7 +172,7 @@ class KrakenApi
      * @param string $assetPair
      * @param int|null $count
      *
-     * @return ResponseInterface|\HanischIt\KrakenApi\Call\OrderBook\OrderBookResponse
+     * @return ResponseInterface|OrderBookResponse
      */
     public function getOrderBook($assetPair, $count = null)
     {
