@@ -8,9 +8,9 @@
 
 namespace src\Model\ClosedOrders;
 
+use HanischIt\KrakenApi\Call\OpenOrders\OpenOrdersRequest;
+use HanischIt\KrakenApi\Call\OpenOrders\OpenOrdersResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersRequest;
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
 use PHPUnit\Framework\TestCase;
 
 class OpenOrdersRequestTest extends TestCase

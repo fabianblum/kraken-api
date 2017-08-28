@@ -2,7 +2,7 @@
 
 namespace src\Model\Trades;
 
-use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderResponse;
+use HanischIt\KrakenApi\Call\CancelOpenOrder\CancelOpenOrderResponse;
 use PHPUnit\Framework\TestCase;
 
 class CancelOpenOrderResponseTest extends TestCase

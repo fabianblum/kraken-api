@@ -2,7 +2,7 @@
 
 namespace src\Model\GetTicker;
 
-use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
+use HanischIt\KrakenApi\Call\GetTicker\TickerResponse;
 use PHPUnit\Framework\TestCase;
 
 class TickerResponseTest extends TestCase

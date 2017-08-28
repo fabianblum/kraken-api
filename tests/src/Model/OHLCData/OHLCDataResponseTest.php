@@ -2,7 +2,7 @@
 
 namespace src\Model\OHLCData;
 
-use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
+use HanischIt\KrakenApi\Call\OHLCData\OHLCDataResponse;
 use PHPUnit\Framework\TestCase;
 
 class OHLCDataResponseTest extends TestCase

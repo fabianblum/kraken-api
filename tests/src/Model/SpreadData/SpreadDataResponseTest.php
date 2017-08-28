@@ -2,7 +2,7 @@
 
 namespace src\Model\SpreadData;
 
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
+use HanischIt\KrakenApi\Call\SpreadData\SpreadDataResponse;
 use PHPUnit\Framework\TestCase;
 
 class SpreadDataResponseTest extends TestCase

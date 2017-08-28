@@ -17,7 +17,8 @@ try {
     echo "Last: " . date("Y-m-d H:i:s", $tradableAssetPairResponse->getLast()) . " \n";
 
     foreach ($tradableAssetPairResponse->getSpreads() as $spread) {
-        echo date("Y-m-d H:i:s", $spread->getTime()) . " / Ask: " . $spread->getAsk() . " / Bid: " . $spread->getBid() . "\n";
+        echo date("Y-m-d H:i:s",
+                $spread->getTime()) . " / Ask: " . $spread->getAsk() . " / Bid: " . $spread->getBid() . "\n";
     }
 } catch (Exception $e) {
     echo $e->getMessage();

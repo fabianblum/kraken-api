@@ -2,7 +2,6 @@
 
 namespace src\Model\RecentTrades;
 
-use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use PHPUnit\Framework\TestCase;
 
 class RecentTradesResponseTest extends TestCase
@@ -25,7 +24,7 @@ class RecentTradesResponseTest extends TestCase
             }
         }
 
-        $recentTradesResponse = new RecentTradesResponse();
+        $recentTradesResponse = new \HanischIt\KrakenApi\Call\RecentTrades\RecentTradesResponse();
         $recentTradesResponse->manualMapping($data);
 
         self::assertEquals($data["last"], $recentTradesResponse->getLast());

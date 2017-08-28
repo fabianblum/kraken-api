@@ -8,7 +8,7 @@
 
 namespace src\Model\AddOrder;
 
-use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
+use HanischIt\KrakenApi\Call\AddOrder\AddOrderResponse;
 use PHPUnit\Framework\TestCase;
 
 class AddOrderResponseTest extends TestCase

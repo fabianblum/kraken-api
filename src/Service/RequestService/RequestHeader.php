@@ -18,7 +18,7 @@ class RequestHeader
 {
     /**
      * @param Header $header
-     * @param array  $requestData
+     * @param array $requestData
      * @param string $path
      * @param        $nonce
      *
@@ -28,7 +28,8 @@ class RequestHeader
     {
         $requestData["nonce"] = $nonce;
         $postData = http_build_query($requestData, '', '&');
-        $sign = hash_hmac('sha512', $path . hash('sha256', $nonce . $postData, true), base64_decode($header->getApiSign()), true);
+        $sign = hash_hmac('sha512', $path . hash('sha256', $nonce . $postData, true),
+            base64_decode($header->getApiSign()), true);
 
         return ["API-Key" => $header->getApiKey(), "API-Sign" => base64_encode($sign)];
     }

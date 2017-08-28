@@ -13,7 +13,8 @@ try {
     echo "last: " . date("Y-m-d H:i:s", $ohlcResponse->getLast()) . "\n";
 
     foreach ($ohlcResponse->getOhlcDataModels() as $ohlcDataModel) {
-        echo date("Y-m-d H:i:s", $ohlcDataModel->getTime()) . ": High: " . $ohlcDataModel->getHigh() . " / Low: " . $ohlcDataModel->getLow() . "\n";
+        echo date("Y-m-d H:i:s",
+                $ohlcDataModel->getTime()) . ": High: " . $ohlcDataModel->getHigh() . " / Low: " . $ohlcDataModel->getLow() . "\n";
     }
 
 

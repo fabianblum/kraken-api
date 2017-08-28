@@ -2,7 +2,7 @@
 
 namespace src\Model\LedgersInfo;
 
-use HanischIt\KrakenApi\Model\LedgersInfo\LedgersInfoResponse;
+use HanischIt\KrakenApi\Call\LedgersInfo\LedgersInfoResponse;
 use PHPUnit\Framework\TestCase;
 
 class LedgersInfoResponseTest extends TestCase

@@ -2,7 +2,7 @@
 
 namespace src\Model\OrderBook;
 
-use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
+use HanischIt\KrakenApi\Call\OrderBook\Model\OrderBookResponse;
 use PHPUnit\Framework\TestCase;
 
 class OrderBookResponseTest extends TestCase

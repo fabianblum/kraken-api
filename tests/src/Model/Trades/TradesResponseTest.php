@@ -2,7 +2,6 @@
 
 namespace src\Model\Trades;
 
-use HanischIt\KrakenApi\Model\Trades\TradesResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradesResponseTest extends TestCase
@@ -14,7 +13,7 @@ class TradesResponseTest extends TestCase
             $data[] = ["ordertxid" => uniqid(), "pair" => uniqid(), "time" => uniqid(), "type" => uniqid(), "ordertype" => uniqid(), "price" => rand(1000, 99999) / 1000, "cost" => rand(1000, 99999) / 1000, "fee" => rand(1000, 99999) / 1000, "vol" => rand(1000, 99999) / 1000, "margin" => rand(1000, 99999) / 1000, "misc" => uniqid(), "closing" => uniqid()];
         }
 
-        $tradesHistoryResponse = new TradesResponse();
+        $tradesHistoryResponse = new \HanischIt\KrakenApi\Call\Trades\TradesResponse();
         $tradesHistoryResponse->manualMapping($data);
 
         foreach ($tradesHistoryResponse->getTrades() as $key => $trade) {

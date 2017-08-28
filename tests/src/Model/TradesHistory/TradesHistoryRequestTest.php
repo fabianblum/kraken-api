@@ -2,9 +2,9 @@
 
 namespace src\Model\TradeBalance;
 
+use HanischIt\KrakenApi\Call\TradesHistory\TradesHistoryRequest;
+use HanischIt\KrakenApi\Call\TradesHistory\TradesHistoryResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryRequest;
-use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradesHistoryRequestTest extends TestCase

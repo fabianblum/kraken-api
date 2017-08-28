@@ -2,9 +2,8 @@
 
 namespace src\Model\TradeBalance;
 
+use HanischIt\KrakenApi\Call\TradeBalance\TradeBalanceResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceRequest;
-use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradeBalanceRequestTest extends TestCase
@@ -18,7 +17,7 @@ class TradeBalanceRequestTest extends TestCase
         $data["aclass"] = $aclass;
         $data["asset"] = $asset;
 
-        $ohlcdRequest = new TradeBalanceRequest($aclass, $asset);
+        $ohlcdRequest = new \HanischIt\KrakenApi\Call\TradeBalance\TradeBalanceRequest($aclass, $asset);
         self::assertEquals($ohlcdRequest->getMethod(), 'TradeBalance');
         self::assertEquals($ohlcdRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($ohlcdRequest->getRequestData(), $data);

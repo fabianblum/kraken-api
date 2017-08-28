@@ -8,29 +8,29 @@
 
 namespace src;
 
+use HanischIt\KrakenApi\Call\AccountBalance\AccountBalanceResponse;
+use HanischIt\KrakenApi\Call\AddOrder\AddOrderResponse;
+use HanischIt\KrakenApi\Call\Assets\AssetsResponse;
+use HanischIt\KrakenApi\Call\CancelOpenOrder\CancelOpenOrderResponse;
+use HanischIt\KrakenApi\Call\ClosedOrders\ClosedOrdersResponse;
+use HanischIt\KrakenApi\Call\GetTicker\TickerResponse;
+use HanischIt\KrakenApi\Call\LedgersInfo\LedgersInfoResponse;
+use HanischIt\KrakenApi\Call\OHLCData\OHLCDataResponse;
+use HanischIt\KrakenApi\Call\OpenOrders\OpenOrdersResponse;
+use HanischIt\KrakenApi\Call\OpenPositions\OpenPositionsResponse;
+use HanischIt\KrakenApi\Call\OrderBook\Model\OrderBookResponse;
+use HanischIt\KrakenApi\Call\OrdersInfo\OrdersInfoResponse;
+use HanischIt\KrakenApi\Call\QueryLedgers\QueryLedgersResponse;
+use HanischIt\KrakenApi\Call\RecentTrades\RecentTradesResponse;
+use HanischIt\KrakenApi\Call\ServerTime\ServerTimeResponse;
+use HanischIt\KrakenApi\Call\SpreadData\SpreadDataResponse;
+use HanischIt\KrakenApi\Call\TradableAssetPairs\TradableAssetPairsResponse;
+use HanischIt\KrakenApi\Call\TradeBalance\TradeBalanceResponse;
+use HanischIt\KrakenApi\Call\Trades\TradesResponse;
+use HanischIt\KrakenApi\Call\TradesHistory\TradesHistoryResponse;
+use HanischIt\KrakenApi\Call\TradeVolume\TradeVolumeResponse;
 use HanischIt\KrakenApi\KrakenApi;
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
-use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
-use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
-use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderResponse;
-use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
-use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
-use HanischIt\KrakenApi\Model\LedgersInfo\LedgersInfoResponse;
-use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
-use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsResponse;
-use HanischIt\KrakenApi\Model\OrderBook\OrderBookResponse;
-use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
-use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersResponse;
-use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Model\RequestInterface;
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
-use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
-use HanischIt\KrakenApi\Model\TradeBalance\TradeBalanceResponse;
-use HanischIt\KrakenApi\Model\Trades\TradesResponse;
-use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
-use HanischIt\KrakenApi\Model\TradeVolume\TradeVolumeResponse;
 use HanischIt\KrakenApi\Service\RequestService\Request;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -41,6 +41,23 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(ServerTimeResponse::class);
 
         self::assertInstanceOf(ServerTimeResponse::class, $krakenApi->getServerTime());
+    }
+
+    private function getKrakenApi($responseClass)
+    {
+        $apiKey = uniqid();
+        $apiSign = uniqid();
+
+        /** @var RequestInterface|PHPUnit_Framework_MockObject_MockObject $mock */
+        $mock = $this->getMockBuilder(Request::class)->disableOriginalConstructor()
+            ->getMock();
+
+        $mock->expects(self::once())->method('execute')->willReturn(new $responseClass());
+
+        $krakenApi = new KrakenApi($apiKey, $apiSign);
+        $krakenApi->setRequest($mock);
+
+        return $krakenApi;
     }
 
     public function testGetAccountBalance()
@@ -184,23 +201,5 @@ class KrakenApiTest extends \PHPUnit_Framework_TestCase
         $krakenApi = $this->getKrakenApi(OpenPositionsResponse::class);
 
         self::assertInstanceOf(OpenPositionsResponse::class, $krakenApi->getOpenPositions(uniqid()));
-    }
-
-
-    private function getKrakenApi($responseClass)
-    {
-        $apiKey = uniqid();
-        $apiSign = uniqid();
-
-        /** @var RequestInterface|PHPUnit_Framework_MockObject_MockObject $mock */
-        $mock = $this->getMockBuilder(Request::class)->disableOriginalConstructor()
-            ->getMock();
-
-        $mock->expects(self::once())->method('execute')->willReturn(new $responseClass());
-
-        $krakenApi = new KrakenApi($apiKey, $apiSign);
-        $krakenApi->setRequest($mock);
-
-        return $krakenApi;
     }
 }

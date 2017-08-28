@@ -8,13 +8,13 @@
 
 namespace tests\src\Service\RequestService;
 
+use HanischIt\KrakenApi\Call\ServerTime\ServerTimeResponse;
+use HanischIt\KrakenApi\Call\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
 use HanischIt\KrakenApi\Model\Header;
 use HanischIt\KrakenApi\Model\RequestInterface;
 use HanischIt\KrakenApi\Model\RequestOptions;
 use HanischIt\KrakenApi\Model\ResponseInterface;
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Service\RequestService\GetRequest;
 use HanischIt\KrakenApi\Service\RequestService\PostRequest;
 use HanischIt\KrakenApi\Service\RequestService\Request;

@@ -8,9 +8,9 @@
 
 namespace src\Model\AddOrder;
 
+use HanischIt\KrakenApi\Call\AddOrder\AddOrderRequest;
+use HanischIt\KrakenApi\Call\AddOrder\AddOrderResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AddOrder\AddOrderRequest;
-use HanischIt\KrakenApi\Model\AddOrder\AddOrderResponse;
 use PHPUnit\Framework\TestCase;
 
 class AddOrderRequestTest extends TestCase
@@ -37,7 +37,8 @@ class AddOrderRequestTest extends TestCase
         $addOrderRequest = new AddOrderRequest($pair, $type, $orderType, $price, $volume, $validateOnly);
         self::assertEquals($addOrderRequest->getMethod(), 'AddOrder');
         self::assertEquals($addOrderRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
-        self::assertEquals($addOrderRequest->getResponseClassName(), AddOrderResponse::class);
+        self::assertEquals($addOrderRequest->getResponseClassName(),
+            \HanischIt\KrakenApi\Call\AddOrder\AddOrderResponse::class);
         self::assertEquals($addOrderRequest->getRequestData(), $ret);
     }
 

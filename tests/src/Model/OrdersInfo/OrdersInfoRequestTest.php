@@ -2,9 +2,8 @@
 
 namespace src\Model\OrdersInfo;
 
+use HanischIt\KrakenApi\Call\OrdersInfo\OrdersInfoResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoRequest;
-use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
 use PHPUnit\Framework\TestCase;
 
 class OrdersInfoRequestTest extends TestCase
@@ -14,7 +13,7 @@ class OrdersInfoRequestTest extends TestCase
         $txId = [uniqid()];
         $userref = uniqid();
 
-        $ordersInfoRequest = new OrdersInfoRequest($txId, false, $userref);
+        $ordersInfoRequest = new \HanischIt\KrakenApi\Call\OrdersInfo\OrdersInfoRequest($txId, false, $userref);
         self::assertEquals($ordersInfoRequest->getMethod(), 'QueryOrders');
         self::assertEquals($ordersInfoRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($ordersInfoRequest->getRequestData(), ["trades" => false, "userref" => $userref, "txid" => implode(",", $txId)]);

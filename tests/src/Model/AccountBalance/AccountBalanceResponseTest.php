@@ -8,8 +8,6 @@
 
 namespace src\Model\AccountBalance;
 
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceModel;
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use PHPUnit\Framework\TestCase;
 
 class AccountBalanceResponseTest extends TestCase
@@ -21,11 +19,12 @@ class AccountBalanceResponseTest extends TestCase
         {
             $data[uniqid()] = rand(100, 99999) / 100;
         }
-        $accountBalanceResponse = new AccountBalanceResponse();
+        $accountBalanceResponse = new \HanischIt\KrakenApi\Call\AccountBalance\AccountBalanceResponse();
         $accountBalanceResponse->manualMapping($data);
         $responseModels = $accountBalanceResponse->getBalanceModels();
 
-        self::assertContainsOnlyInstancesOf(AccountBalanceModel::class, $responseModels);
+        self::assertContainsOnlyInstancesOf(\HanischIt\KrakenApi\Call\AccountBalance\Model\AccountBalanceModel::class,
+            $responseModels);
 
         $i = 0;
         foreach($data as $assetName => $balance) {

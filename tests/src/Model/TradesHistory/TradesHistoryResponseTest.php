@@ -2,7 +2,7 @@
 
 namespace src\Model\TradeBalance;
 
-use HanischIt\KrakenApi\Model\TradesHistory\TradesHistoryResponse;
+use HanischIt\KrakenApi\Call\TradesHistory\TradesHistoryResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradesHistoryResponseTest extends TestCase

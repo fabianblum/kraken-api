@@ -36,9 +36,9 @@ class PostRequest
     /**
      * Request constructor.
      *
-     * @param HttpClient    $client
+     * @param HttpClient $client
      * @param RequestHeader $requestHeader
-     * @param Nonce         $nonce
+     * @param Nonce $nonce
      */
     public function __construct(HttpClient $client, RequestHeader $requestHeader, Nonce $nonce)
     {
@@ -49,8 +49,8 @@ class PostRequest
 
     /**
      * @param RequestInterface $request
-     * @param RequestOptions   $requestOptions
-     * @param Header           $header
+     * @param RequestOptions $requestOptions
+     * @param Header $header
      *
      * @return \Psr\Http\Message\ResponseInterface
      */

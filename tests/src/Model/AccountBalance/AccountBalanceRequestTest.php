@@ -8,9 +8,9 @@
 
 namespace src\Model\AccountBalance;
 
+use HanischIt\KrakenApi\Call\AccountBalance\AccountBalanceRequest;
+use HanischIt\KrakenApi\Call\AccountBalance\AccountBalanceResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceRequest;
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceResponse;
 use PHPUnit\Framework\TestCase;
 
 class AccountBalanceRequestTest extends TestCase

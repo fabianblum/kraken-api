@@ -32,7 +32,7 @@ class GetRequest
     /**
      * Request constructor.
      *
-     * @param HttpClient    $client
+     * @param HttpClient $client
      * @param RequestHeader $requestHeader
      */
     public function __construct(HttpClient $client, RequestHeader $requestHeader)
@@ -43,7 +43,7 @@ class GetRequest
 
     /**
      * @param RequestInterface $request
-     * @param RequestOptions   $requestOptions
+     * @param RequestOptions $requestOptions
      *
      * @return ResponseInterface
      */

@@ -8,9 +8,9 @@
 
 namespace src\Model\ServerTime;
 
+use HanischIt\KrakenApi\Call\ServerTime\ServerTimeRequest;
+use HanischIt\KrakenApi\Call\ServerTime\ServerTimeResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeRequest;
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
 use PHPUnit\Framework\TestCase;
 
 class ServerTimeRequestTest extends TestCase

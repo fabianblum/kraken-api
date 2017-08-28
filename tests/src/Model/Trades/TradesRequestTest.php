@@ -2,9 +2,8 @@
 
 namespace src\Model\Trades;
 
+use HanischIt\KrakenApi\Call\Trades\TradesRequest;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\Trades\TradesRequest;
-use HanischIt\KrakenApi\Model\Trades\TradesResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradesRequestTest extends TestCase
@@ -22,6 +21,7 @@ class TradesRequestTest extends TestCase
         self::assertEquals($tradesRequest->getMethod(), 'QueryTrades');
         self::assertEquals($tradesRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($tradesRequest->getRequestData(), $data);
-        self::assertEquals($tradesRequest->getResponseClassName(), TradesResponse::class);
+        self::assertEquals($tradesRequest->getResponseClassName(),
+            \HanischIt\KrakenApi\Call\Trades\TradesResponse::class);
     }
 }

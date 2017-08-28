@@ -2,9 +2,9 @@
 
 namespace src\Model\LedgersInfo;
 
+use HanischIt\KrakenApi\Call\QueryLedgers\QueryLedgersRequest;
+use HanischIt\KrakenApi\Call\QueryLedgers\QueryLedgersResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersRequest;
-use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersResponse;
 use PHPUnit\Framework\TestCase;
 
 class QueryLedgersRequestTest extends TestCase

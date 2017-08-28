@@ -8,8 +8,6 @@
 
 namespace src\Model\Assets;
 
-use HanischIt\KrakenApi\Model\Assets\AssetModel;
-use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use PHPUnit\Framework\TestCase;
 
 class AssetsResponseTest extends TestCase
@@ -23,11 +21,11 @@ class AssetsResponseTest extends TestCase
         }
 
 
-        $assetResponse = new AssetsResponse();
+        $assetResponse = new \HanischIt\KrakenApi\Call\Assets\AssetsResponse();
         $assetResponse->manualMapping($data);
         $responseModels = $assetResponse->getAssets();
 
-        self::assertContainsOnlyInstancesOf(AssetModel::class, $responseModels);
+        self::assertContainsOnlyInstancesOf(\HanischIt\KrakenApi\Call\Assets\Model\AssetModel::class, $responseModels);
 
         $i = 0;
         foreach($data as $assetName => $assetData) {

@@ -2,7 +2,7 @@
 
 namespace src\Model\OpenPositions;
 
-use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsResponse;
+use HanischIt\KrakenApi\Call\OpenPositions\OpenPositionsResponse;
 use PHPUnit\Framework\TestCase;
 
 class OpenPositionsResponseTest extends TestCase

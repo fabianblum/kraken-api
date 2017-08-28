@@ -8,7 +8,6 @@
 
 namespace src\Model\Assets;
 
-use HanischIt\KrakenApi\Model\Assets\AssetModel;
 use PHPUnit\Framework\TestCase;
 
 class AssetModelTest extends TestCase
@@ -21,7 +20,8 @@ class AssetModelTest extends TestCase
         $decimals = rand(2,10);
         $displayDecimals = rand (2, 10);
 
-        $assetModel = new AssetModel($assetName, $aclass, $altname, $decimals, $displayDecimals);
+        $assetModel = new \HanischIt\KrakenApi\Call\Assets\Model\AssetModel($assetName, $aclass, $altname, $decimals,
+            $displayDecimals);
         self::assertEquals($assetName, $assetModel->getAssetName());
         self::assertEquals($aclass, $assetModel->getAclass());
         self::assertEquals($altname, $assetModel->getAltname());

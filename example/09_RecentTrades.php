@@ -17,9 +17,9 @@ try {
     echo "Last: " . date("Y-m-d H:i:s", $orderBookResponse->getLast());
     foreach ($orderBookResponse->getTradeModel('XETHZEUR') as $tradeModel) {
         echo "Time: " . date(
-            "Y-m-d H:i:s",
-            $tradeModel->getTime()
-        ) . " / Type: " . $tradeModel->getType() . " / Price: " . $tradeModel->getPrice() . " / Volume: " . $tradeModel->getVolume() . "\n";
+                "Y-m-d H:i:s",
+                $tradeModel->getTime()
+            ) . " / Type: " . $tradeModel->getType() . " / Price: " . $tradeModel->getPrice() . " / Volume: " . $tradeModel->getVolume() . "\n";
     }
 } catch (Exception $e) {
     echo $e->getMessage();

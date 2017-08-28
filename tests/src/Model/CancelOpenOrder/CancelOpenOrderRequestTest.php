@@ -2,9 +2,8 @@
 
 namespace src\Model\CancelOpenOrder;
 
+use HanischIt\KrakenApi\Call\CancelOpenOrder\CancelOpenOrderRequest;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderRequest;
-use HanischIt\KrakenApi\Model\CancelOpenOrder\CancelOpenOrderResponse;
 use PHPUnit\Framework\TestCase;
 
 class CancelOpenOrderRequestTest extends TestCase
@@ -20,6 +19,7 @@ class CancelOpenOrderRequestTest extends TestCase
         self::assertEquals($cancelOpenOrderRequest->getMethod(), 'CancelOrder');
         self::assertEquals($cancelOpenOrderRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($cancelOpenOrderRequest->getRequestData(), $data);
-        self::assertEquals($cancelOpenOrderRequest->getResponseClassName(), CancelOpenOrderResponse::class);
+        self::assertEquals($cancelOpenOrderRequest->getResponseClassName(),
+            \HanischIt\KrakenApi\Call\CancelOpenOrder\CancelOpenOrderResponse::class);
     }
 }

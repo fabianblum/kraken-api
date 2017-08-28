@@ -2,9 +2,9 @@
 
 namespace src\Model\RecentTrades;
 
+use HanischIt\KrakenApi\Call\RecentTrades\RecentTradesRequest;
+use HanischIt\KrakenApi\Call\RecentTrades\RecentTradesResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesRequest;
-use HanischIt\KrakenApi\Model\RecentTrades\RecentTradesResponse;
 use PHPUnit\Framework\TestCase;
 
 class RecentTradesRequestTest extends TestCase

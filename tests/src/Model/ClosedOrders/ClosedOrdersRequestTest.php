@@ -8,16 +8,16 @@
 
 namespace src\Model\ClosedOrders;
 
+use HanischIt\KrakenApi\Call\ClosedOrders\ClosedOrdersRequest;
+use HanischIt\KrakenApi\Call\ClosedOrders\ClosedOrdersResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersRequest;
-use HanischIt\KrakenApi\Model\ClosedOrders\ClosedOrdersResponse;
 use PHPUnit\Framework\TestCase;
 
 class ClosedOrdersRequestTest extends TestCase
 {
     public function testRequest()
     {
-        $assetRequest = new ClosedOrdersRequest();
+        $assetRequest = new \HanischIt\KrakenApi\Call\ClosedOrders\ClosedOrdersRequest();
         self::assertEquals($assetRequest->getMethod(), 'ClosedOrders');
         self::assertEquals($assetRequest->getVisibility(), VisibilityEnum::VISIBILITY_PRIVATE);
         self::assertEquals($assetRequest->getRequestData(), ["trades" => false]);

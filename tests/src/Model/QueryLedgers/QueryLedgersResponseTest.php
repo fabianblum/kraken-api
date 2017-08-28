@@ -2,7 +2,7 @@
 
 namespace src\Model\LedgersInfo;
 
-use HanischIt\KrakenApi\Model\QueryLedgers\QueryLedgersResponse;
+use HanischIt\KrakenApi\Call\QueryLedgers\QueryLedgersResponse;
 use PHPUnit\Framework\TestCase;
 
 class QueryLedgersResponseTest extends TestCase

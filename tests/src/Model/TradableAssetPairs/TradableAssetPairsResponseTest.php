@@ -2,7 +2,7 @@
 
 namespace src\Model\TradableAssetPairs;
 
-use HanischIt\KrakenApi\Model\TradableAssetPairs\TradableAssetPairsResponse;
+use HanischIt\KrakenApi\Call\TradableAssetPairs\TradableAssetPairsResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradableAssetPairsResponseTest extends TestCase

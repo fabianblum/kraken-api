@@ -2,9 +2,9 @@
 
 namespace src\Model\GetTicker;
 
+use HanischIt\KrakenApi\Call\GetTicker\TickerRequest;
+use HanischIt\KrakenApi\Call\GetTicker\TickerResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\GetTicker\TickerRequest;
-use HanischIt\KrakenApi\Model\GetTicker\TickerResponse;
 use PHPUnit\Framework\TestCase;
 
 class TickerRequestTest extends TestCase

@@ -8,7 +8,7 @@
 
 namespace src\Model\AccountBalance;
 
-use HanischIt\KrakenApi\Model\AccountBalance\AccountBalanceModel;
+use HanischIt\KrakenApi\Call\AccountBalance\Model\AccountBalanceModel;
 use PHPUnit\Framework\TestCase;
 
 class AccountBalanceModelTest extends TestCase

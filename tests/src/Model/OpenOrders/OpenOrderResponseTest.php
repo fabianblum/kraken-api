@@ -8,8 +8,7 @@
 
 namespace src\Model\OpenOrders;
 
-use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
-use HanischIt\KrakenApi\Model\OpenOrders\OpenOrdersResponse;
+use HanischIt\KrakenApi\Call\Shared\Model\OrderModel;
 use PHPUnit\Framework\TestCase;
 
 class OpenOrderResponseTest extends TestCase
@@ -39,7 +38,7 @@ class OpenOrderResponseTest extends TestCase
         }
 
 
-        $closedOrdersResponse = new OpenOrdersResponse();
+        $closedOrdersResponse = new \HanischIt\KrakenApi\Call\OpenOrders\OpenOrdersResponse();
         $closedOrdersResponse->manualMapping($data);
         $responseModels = $closedOrdersResponse->getOrders();
 

@@ -2,9 +2,9 @@
 
 namespace src\Model\SpreadData;
 
+use HanischIt\KrakenApi\Call\SpreadData\SpreadDataRequest;
+use HanischIt\KrakenApi\Call\SpreadData\SpreadDataResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataRequest;
-use HanischIt\KrakenApi\Model\SpreadData\SpreadDataResponse;
 use PHPUnit\Framework\TestCase;
 
 class SpreadDataRequestTest extends TestCase

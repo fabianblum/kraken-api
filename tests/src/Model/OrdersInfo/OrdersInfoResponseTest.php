@@ -2,8 +2,8 @@
 
 namespace src\Model\OrdersInfo;
 
-use HanischIt\KrakenApi\Calls\Shared\Model\OrderModel;
-use HanischIt\KrakenApi\Model\OrdersInfo\OrdersInfoResponse;
+use HanischIt\KrakenApi\Call\OrdersInfo\OrdersInfoResponse;
+use HanischIt\KrakenApi\Call\Shared\Model\OrderModel;
 use PHPUnit\Framework\TestCase;
 
 class OrdersInfoResponseTest extends TestCase

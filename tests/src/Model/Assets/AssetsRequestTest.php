@@ -9,18 +9,17 @@
 namespace src\Model\Assets;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\Assets\AssetsRequest;
-use HanischIt\KrakenApi\Model\Assets\AssetsResponse;
 use PHPUnit\Framework\TestCase;
 
 class AssetsRequestTest extends TestCase
 {
     public function testRequest()
     {
-        $assetRequest = new AssetsRequest();
+        $assetRequest = new \HanischIt\KrakenApi\Call\Assets\AssetsRequest();
         self::assertEquals($assetRequest->getMethod(), 'Assets');
         self::assertEquals($assetRequest->getVisibility(), VisibilityEnum::VISIBILITY_PUBLIC);
         self::assertEquals($assetRequest->getRequestData(), []);
-        self::assertEquals($assetRequest->getResponseClassName(), AssetsResponse::class);
+        self::assertEquals($assetRequest->getResponseClassName(),
+            \HanischIt\KrakenApi\Call\Assets\AssetsResponse::class);
     }
 }

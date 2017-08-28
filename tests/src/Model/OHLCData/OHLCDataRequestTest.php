@@ -3,8 +3,6 @@
 namespace src\Model\OHLCData;
 
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OHLCData\OHLCDataRequest;
-use HanischIt\KrakenApi\Model\OHLCData\OHLCDataResponse;
 use PHPUnit\Framework\TestCase;
 
 class OHLCDataRequestTest extends TestCase
@@ -20,10 +18,11 @@ class OHLCDataRequestTest extends TestCase
         $data["interval"] = $interval;
         $data["since"] = $since;
 
-        $ohlcdRequest = new OHLCDataRequest($pair, $interval, $since);
+        $ohlcdRequest = new \HanischIt\KrakenApi\Call\OHLCData\OHLCDataRequest($pair, $interval, $since);
         self::assertEquals($ohlcdRequest->getMethod(), 'OHLC');
         self::assertEquals($ohlcdRequest->getVisibility(), VisibilityEnum::VISIBILITY_PUBLIC);
         self::assertEquals($ohlcdRequest->getRequestData(), $data);
-        self::assertEquals($ohlcdRequest->getResponseClassName(), OHLCDataResponse::class);
+        self::assertEquals($ohlcdRequest->getResponseClassName(),
+            \HanischIt\KrakenApi\Call\OHLCData\OHLCDataResponse::class);
     }
 }

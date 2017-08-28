@@ -8,7 +8,7 @@
 
 namespace src\Model\ServerTime;
 
-use HanischIt\KrakenApi\Model\ServerTime\ServerTimeResponse;
+use HanischIt\KrakenApi\Call\ServerTime\ServerTimeResponse;
 use PHPUnit\Framework\TestCase;
 
 class ServerTimeResponseTest extends TestCase

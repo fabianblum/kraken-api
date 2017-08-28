@@ -2,9 +2,9 @@
 
 namespace src\Model\OpenPositions;
 
+use HanischIt\KrakenApi\Call\OpenPositions\OpenPositionsRequest;
+use HanischIt\KrakenApi\Call\OpenPositions\OpenPositionsResponse;
 use HanischIt\KrakenApi\Enum\VisibilityEnum;
-use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsRequest;
-use HanischIt\KrakenApi\Model\OpenPositions\OpenPositionsResponse;
 use PHPUnit\Framework\TestCase;
 
 class OpenPositionsRequestTest extends TestCase

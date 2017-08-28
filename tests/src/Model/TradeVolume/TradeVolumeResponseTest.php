@@ -2,7 +2,6 @@
 
 namespace src\Model\TradeVolume;
 
-use HanischIt\KrakenApi\Model\TradeVolume\TradeVolumeResponse;
 use PHPUnit\Framework\TestCase;
 
 class TradeVolumeResponseTest extends TestCase
@@ -36,7 +35,7 @@ class TradeVolumeResponseTest extends TestCase
             ];
         }
 
-        $tradeVolumeResponse = new TradeVolumeResponse();
+        $tradeVolumeResponse = new \HanischIt\KrakenApi\Call\TradeVolume\TradeVolumeResponse();
         $tradeVolumeResponse->manualMapping($data);
 
         self::assertEquals($data["currency"], $tradeVolumeResponse->getCurrency());
