@@ -24,12 +24,16 @@ class TradableAssetPairsResponse implements ResponseInterface
     {
         foreach ($arr as $assetPair => $data) {
             $fees = [];
-            foreach ($data["fees"] as $feeData) {
-                $fees[] = new FeeModel($feeData[0], $feeData[1]);
+            if (isset($data["fees"])) {
+                foreach ($data["fees"] as $feeData) {
+                    $fees[] = new FeeModel($feeData[0], $feeData[1]);
+                }
             }
             $feesMaker = [];
-            foreach ($data["fees_maker"] as $feeData) {
-                $feesMaker[] = new FeeModel($feeData[0], $feeData[1]);
+            if (isset($data["fees_maker"])) {
+                foreach ($data["fees_maker"] as $feeData) {
+                    $feesMaker[] = new FeeModel($feeData[0], $feeData[1]);
+                }
             }
             $this->tradableAssets[] = new AssetPairModel(
                 $assetPair,

@@ -26,7 +26,7 @@ class CancelOpenOrderResponse implements ResponseInterface
     public function manualMapping($result)
     {
         $this->count = $result["count"];
-        $this->pending = $result["pending"];
+        $this->pending = isset($result["pending"]) ? $result["pending"] : 0;
     }
 
     /**

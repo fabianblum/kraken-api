@@ -22,6 +22,10 @@ class TradesResponse implements ResponseInterface
     public function manualMapping($result)
     {
         foreach ($result as $txId => $trade) {
+            if (!isset($trade["closing"])) {
+                $trade["closing"] = null;
+            }
+            
             $this->trades[] = new TradeModel($trade["ordertxid"], $trade["pair"], $trade["time"], $trade["type"],
                 $trade["ordertype"], $trade["price"], $trade["cost"], $trade["fee"], $trade["vol"], $trade["margin"],
                 $trade["misc"], $trade["closing"]);

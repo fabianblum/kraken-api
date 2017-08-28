@@ -15,13 +15,19 @@ class LedgersInfoResponse implements ResponseInterface
      * @var LedgerInfoModel[]
      */
     private $ledgerInfos;
+    /**
+     * @var int
+     */
+    private $count;
 
     /**
      * @param array $result
      */
     public function manualMapping($result)
     {
-        foreach ($result as $ledgerId => $ledger) {
+        $this->count = $result["count"];
+
+        foreach ($result["ledger"] as $ledgerId => $ledger) {
             $this->ledgerInfos[] = new LedgerInfoModel(
                 $ledgerId,
                 $ledger['refid'],

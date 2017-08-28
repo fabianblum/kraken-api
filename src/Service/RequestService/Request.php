@@ -85,7 +85,7 @@ class Request implements RequestServiceInterface
     private function handleError($result)
     {
         if (isset($result["error"]) && !empty($result["error"])) {
-            throw new ApiException($result["error"]);
+            throw new ApiException(implode($result["error"], ","));
         }
     }
 }

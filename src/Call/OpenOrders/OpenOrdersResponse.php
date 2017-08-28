@@ -16,7 +16,7 @@ class OpenOrdersResponse implements ResponseInterface
     /**
      * @var \HanischIt\KrakenApi\Call\Shared\Model\OrderModel[]
      */
-    private $orders;
+    private $orders = [];
 
     /**
      * @param array $result
