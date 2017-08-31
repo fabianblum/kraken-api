@@ -3,9 +3,8 @@
 ![PHP 5.5](https://img.shields.io/badge/PHP-5.5-brightgreen.svg)
 ![PHP 5.6](https://img.shields.io/badge/PHP-5.6-brightgreen.svg)
 ![PHP 7](https://img.shields.io/badge/PHP-7-brightgreen.svg)
-![PHP 7.1](https://img.shields.io/badge/PHP-7.1-green.svg)
+![PHP 7.1](https://img.shields.io/badge/PHP-7.1-brightgreen.svg)
 [![Version](https://img.shields.io/github/tag/Hanisch-IT/kraken-api.svg)](https://packagist.org/packages/hanischit/kraken-api)
-[![Build Status](https://travis-ci.org/Hanisch-IT/kraken-api.svg?branch=master)](https://travis-ci.org/Hanisch-IT/kraken-api)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Hanisch-IT/kraken-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Hanisch-IT/kraken-api/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Hanisch-IT/kraken-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Hanisch-IT/kraken-api/?branch=master)
 
@@ -26,7 +25,7 @@ or run
 composer require hanischit/kraken-api
 ```
 
-PHPMailer declares the namespace `\HanischIt\KrakenApi`.
+The API declares the namespace `\HanischIt\KrakenApi`.
 
 
 ## Example
@@ -52,9 +51,8 @@ See  [examples](https://github.com/Hanisch-IT/kraken-api/tree/master/example) fo
 ## Tests
 There is a PHPUnit test script in the [test](https://github.com/Hanisch-IT/kraken-api/tree/master/tests) folder. 
 
-Build status: [![Build Status](https://travis-ci.org/PHPMailer/PHPMailer.svg)](https://travis-ci.org/PHPMailer/PHPMailer)
+Build status: [![Build Status](https://travis-ci.org/Hanisch-IT/kraken-api.svg?branch=master)](https://travis-ci.org/Hanisch-IT/kraken-api)
 
-If this isn't passing, is there something you can do to help?
 
 ## Security
 
