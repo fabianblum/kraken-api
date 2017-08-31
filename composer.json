@@ -1,5 +1,6 @@
 {
   "name": "hanischit/kraken-api",
+  "description": "A API-Client for the crypto market Kraken.com.",
   "type": "library",
   "license": "MIT",
   "keywords": [
