@@ -1,5 +1,5 @@
 # Kraken-API
-
+[![Gitter chat](https://badges.gitter.im/hanisch-it/kraken-api.png)](https://gitter.im/hanischit-kraken-api/Lobby)
 ![PHP 5.5](https://img.shields.io/badge/PHP-5.5-brightgreen.svg)
 ![PHP 5.6](https://img.shields.io/badge/PHP-5.6-brightgreen.svg)
 ![PHP 7](https://img.shields.io/badge/PHP-7-brightgreen.svg)
