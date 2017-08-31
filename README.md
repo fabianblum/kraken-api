@@ -1,9 +1,9 @@
 # Kraken-API
 
-[![PHP55](https://img.shields.io/badge/PHP-5.5-green.svg)]
-[![PHP56](https://img.shields.io/badge/PHP-5.6-green.svg)]
-[![PHP7](https://img.shields.io/badge/PHP-7-green.svg)]
-[![PHP71](https://img.shields.io/badge/PHP-7.1-green.svg)]
+[PHP55](https://img.shields.io/badge/PHP-5.5-brightgreen.svg)
+[PHP56](https://img.shields.io/badge/PHP-5.6-brightgreen.svg)
+[PHP7](https://img.shields.io/badge/PHP-7-brightgreen.svg)
+[PHP71](https://img.shields.io/badge/PHP-7.1-green.svg)
 [![Version](https://img.shields.io/github/tag/Hanisch-IT/kraken-api.svg)](https://packagist.org/packages/hanischit/kraken-api)
 [![Build Status](https://travis-ci.org/Hanisch-IT/kraken-api.svg?branch=master)](https://travis-ci.org/Hanisch-IT/kraken-api)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Hanisch-IT/kraken-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Hanisch-IT/kraken-api/?branch=master)
