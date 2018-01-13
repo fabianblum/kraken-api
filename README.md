@@ -16,7 +16,7 @@ All calls of the api are implemented: https://www.kraken.com/help/api
 Kraken api is available on [Packagist](https://packagist.org/packages/hanischit/kraken-api) (using semantic versioning), and installation via composer is the recommended way to install Kraken-api. Just add this line to your `composer.json` file:
 
 ```json
-"hanischit/kraken-api": "^1.1.3"
+"hanischit/kraken-api": "^1.1.5"
 ```
 
 or run
