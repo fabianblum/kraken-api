@@ -136,12 +136,12 @@ class KrakenApi
      * @param string $orderType
      * @param null|float $price
      * @param null|float $volume
-     *
-     * @return ResponseInterface|AddOrderResponse
+     * @param bool $validateOnly
+     * @return AddOrderResponse|ResponseInterface
      */
-    public function addOrder($pair, $type, $orderType, $price = null, $volume = null)
+    public function addOrder($pair, $type, $orderType, $price = null, $volume = null, $validateOnly = false)
     {
-        $addOrderRequest = new AddOrderRequest($pair, $type, $orderType, $price, $volume);
+        $addOrderRequest = new AddOrderRequest($pair, $type, $orderType, $price, $volume, $validateOnly);
 
         return $this->doRequest($addOrderRequest);
     }

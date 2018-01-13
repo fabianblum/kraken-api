@@ -32,7 +32,9 @@ class AddOrderResponse implements ResponseInterface
     public function manualMapping($result)
     {
         $this->descr = $result['descr']['order'];
-        $this->txid = $result['txid'][0];
+        if(isset($result['txid'])) {
+            $this->txid = $result['txid'][0];
+        }
     }
 
 

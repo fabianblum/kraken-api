@@ -21,7 +21,8 @@ try {
         OrderTypeEnum::ORDER_TYPE_BUY,
         OrderOrderTypeEnum::ORDER_ORDERTYPE_LIMIT,
         200,
-        10
+        10,
+        true
     );
 
     echo "TxId: " . $addOrderResponse->getTxid();
